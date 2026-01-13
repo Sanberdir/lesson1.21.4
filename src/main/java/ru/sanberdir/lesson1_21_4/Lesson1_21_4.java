@@ -12,6 +12,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 
@@ -23,6 +24,7 @@ public class Lesson1_21_4 {
     public Lesson1_21_4(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         L1214Items.ITEMS.register(modEventBus);
+        L1214Blocks.BLOCKS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);

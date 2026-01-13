@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 
 import java.util.function.Supplier;
@@ -19,7 +20,11 @@ public class L1214Tabs {
                     .title(Component.translatable("itemGroup.lesson1_21_4.items_neo"))
                     .icon(() -> new ItemStack(L1214Items.NUGGET_OBSIDIAN.get()))
                     .displayItems((params, output) -> {
+                        // предметы
                         output.accept(L1214Items.NUGGET_OBSIDIAN.get());
+                        // блоки
+                        output.accept(L1214Items.MY_BETTER_BLOCK.get());
+                        output.accept(L1214Items.MY_BETTER_BLOCK2.get());
                     })
                     .build());
 }
