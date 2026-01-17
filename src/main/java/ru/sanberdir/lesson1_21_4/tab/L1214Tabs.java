@@ -22,6 +22,7 @@ public class L1214Tabs {
                     .displayItems((params, output) -> {
                         // предметы
                         output.accept(L1214Items.NUGGET_OBSIDIAN.get());
+                        output.accept(L1214Items.NUGGET_OBSIDIAN2.get());
                         // блоки
                         output.accept(L1214Items.MY_BETTER_BLOCK.get());
                         output.accept(L1214Items.MY_BETTER_BLOCK2.get());
