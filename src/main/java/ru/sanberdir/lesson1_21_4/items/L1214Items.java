@@ -1,5 +1,6 @@
 package ru.sanberdir.lesson1_21_4.items;
 
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -12,7 +13,8 @@ public class L1214Items {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Lesson1_21_4.MODID);
 
     public static final DeferredItem<Item> NUGGET_OBSIDIAN = ITEMS.registerItem("nugget_obsidian",
-            Item::new,  new Item.Properties());
+            properties -> new Item(properties),
+            new Item.Properties().food(new FoodProperties(12,0.5F,false)));
 
     public static final DeferredItem<Item> NUGGET_OBSIDIAN2 = ITEMS.registerItem("nugget_obsidian2",
             properties -> new FuelItem(properties,1200),
