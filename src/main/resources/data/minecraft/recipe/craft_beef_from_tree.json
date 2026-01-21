@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "A  "
+  ],
+  "key": {
+    "A": [
+      "minecraft:acacia_sign",
+      "minecraft:acacia_trapdoor"
+    ]
+  },
+  "result": {
+    "id": "minecraft:beef",
+    "count": 4
+  }
+}

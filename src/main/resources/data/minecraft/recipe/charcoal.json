@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "#lesson1_21_4:charcoal_recipe",
+  "result": {
+    "id": "minecraft:charcoal"
+  },
+  "cookingtime": 200,
+  "experience": 6
+}
