@@ -26,6 +26,7 @@ public class L1214Tabs {
                         // блоки
                         output.accept(L1214Items.MY_BETTER_BLOCK.get());
                         output.accept(L1214Items.MY_BETTER_BLOCK2.get());
+                        output.accept(L1214Items.USUAL_PLANKS.get());
                     })
                     .build());
 }

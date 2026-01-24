@@ -36,5 +36,13 @@ public class L1214Items {
             ),
             new Item.Properties()
     );
+    public static final DeferredItem<BlockItem> USUAL_PLANKS = ITEMS.registerItem(
+            "usual_planks",
+            properties -> new BlockItem(
+                    L1214Blocks.USUAL_PLANKS.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
 
 }

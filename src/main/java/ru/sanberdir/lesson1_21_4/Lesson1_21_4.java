@@ -13,6 +13,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
+import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 
@@ -32,7 +33,7 @@ public class Lesson1_21_4 {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(ModFlammableBlocks::registerFlammableBlocks);
     }
 
     // Add the example block item to the building blocks tab
