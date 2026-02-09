@@ -45,4 +45,38 @@ public class L1214Items {
             new Item.Properties()
     );
 
+    // Брёвна
+    public static final DeferredItem<BlockItem> USUAL_LOG = ITEMS.registerItem(
+            "usual_log",
+            properties -> new BlockItem(
+                    L1214Blocks.USUAL_LOG.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> USUAL_WOOD = ITEMS.registerItem(
+            "usual_wood",
+            properties -> new BlockItem(
+                    L1214Blocks.USUAL_WOOD.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> STRIPPED_USUAL_LOG = ITEMS.registerItem(
+            "stripped_usual_log",
+            properties -> new BlockItem(
+                    L1214Blocks.STRIPPED_USUAL_LOG.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> STRIPPED_USUAL_WOOD = ITEMS.registerItem(
+            "stripped_usual_wood",
+            properties -> new BlockItem(
+                    L1214Blocks.STRIPPED_USUAL_WOOD.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+
 }

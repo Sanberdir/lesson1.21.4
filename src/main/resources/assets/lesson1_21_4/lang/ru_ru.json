@@ -10,5 +10,9 @@
 
   "item.lesson1_21_4.my_better_block": "Блок 1",
   "item.lesson1_21_4.my_better_block2": "Блок 2",
-  "item.lesson1_21_4.usual_planks": "Обычные доски"
+  "item.lesson1_21_4.usual_planks": "Обычные доски",
+  "item.lesson1_21_4.usual_log": "Обычное бревно",
+  "item.lesson1_21_4.usual_wood": "Обычная древесина",
+  "item.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
+  "item.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина"
 }

@@ -27,6 +27,10 @@ public class L1214Tabs {
                         output.accept(L1214Items.MY_BETTER_BLOCK.get());
                         output.accept(L1214Items.MY_BETTER_BLOCK2.get());
                         output.accept(L1214Items.USUAL_PLANKS.get());
+                        output.accept(L1214Items.USUAL_WOOD.get());
+                        output.accept(L1214Items.USUAL_LOG);
+                        output.accept(L1214Items.STRIPPED_USUAL_WOOD);
+                        output.accept(L1214Items.STRIPPED_USUAL_LOG);
                     })
                     .build());
 }

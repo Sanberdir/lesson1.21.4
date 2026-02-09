@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "lesson1_21_4:block/usual_log",
+    "side": "lesson1_21_4:block/usual_log"
+  }
+}
