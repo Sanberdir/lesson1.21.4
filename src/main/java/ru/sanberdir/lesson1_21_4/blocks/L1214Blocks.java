@@ -31,6 +31,7 @@ public class L1214Blocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS)
                     .strength(1.0F, 3.0F).sound(SoundType.BAMBOO_WOOD).ignitedByLava()
     );
+
     // Брёвна
     public static final DeferredBlock<Block> USUAL_LOG = BLOCKS.registerBlock(
             "usual_log",
