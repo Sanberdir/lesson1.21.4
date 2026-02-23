@@ -78,5 +78,21 @@ public class L1214Items {
             ),
             new Item.Properties()
     );
+    public static final DeferredItem<BlockItem> USUAL_LEAVES = ITEMS.registerItem(
+            "usual_leaves",
+            properties -> new BlockItem(
+                    L1214Blocks.USUAL_LEAVES.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> USUAL_SAPLING = ITEMS.registerItem(
+            "usual_sapling",
+            properties -> new BlockItem(
+                    L1214Blocks.USUAL_SAPLING.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
 
 }

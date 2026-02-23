@@ -31,6 +31,8 @@ public class L1214Tabs {
                         output.accept(L1214Items.USUAL_LOG);
                         output.accept(L1214Items.STRIPPED_USUAL_WOOD);
                         output.accept(L1214Items.STRIPPED_USUAL_LOG);
+                        output.accept(L1214Items.USUAL_LEAVES);
+                        output.accept(L1214Items.USUAL_SAPLING);
                     })
                     .build());
 }

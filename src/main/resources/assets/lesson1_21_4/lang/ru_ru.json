@@ -6,6 +6,8 @@
   "block.lesson1_21_4.usual_planks": "Обычные доски",
   "block.lesson1_21_4.usual_log": "Обычное бревно",
   "block.lesson1_21_4.usual_wood": "Обычная древесина",
+  "block.lesson1_21_4.usual_leaves": "Обычная листва",
+  "block.lesson1_21_4.usual_sapling": "Обычный саженец",
   "block.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
   "block.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина",
 
@@ -18,6 +20,8 @@
   "item.lesson1_21_4.usual_planks": "Обычные доски",
   "item.lesson1_21_4.usual_log": "Обычное бревно",
   "item.lesson1_21_4.usual_wood": "Обычная древесина",
+  "item.lesson1_21_4.usual_leaves": "Обычная листва",
+  "item.lesson1_21_4.usual_sapling": "Обычный саженец",
   "item.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
   "item.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина"
 }

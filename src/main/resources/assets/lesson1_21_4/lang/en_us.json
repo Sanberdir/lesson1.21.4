@@ -6,6 +6,8 @@
   "block.lesson1_21_4.usual_planks": "Usual Planks",
   "block.lesson1_21_4.usual_log": "Usual Log",
   "block.lesson1_21_4.usual_wood": "Usual Wood",
+  "block.lesson1_21_4.usual_leaves": "Usual Leaves",
+  "block.lesson1_21_4.usual_sapling": "Usual Sapling",
   "block.lesson1_21_4.stripped_usual_log": "Stripped Usual Wood",
   "block.lesson1_21_4.stripped_usual_wood": "Stripped Usual Log",
 
@@ -16,6 +18,8 @@
   "item.lesson1_21_4.usual_planks": "Usual Planks",
   "item.lesson1_21_4.usual_log": "Usual Log",
   "item.lesson1_21_4.usual_wood": "Usual Wood",
+  "item.lesson1_21_4.usual_leaves": "Usual Leaves",
+  "item.lesson1_21_4.usual_sapling": "Usual Sapling",
   "item.lesson1_21_4.stripped_usual_log": "Stripped Usual Wood",
   "item.lesson1_21_4.stripped_usual_wood": "Stripped Usual Log"
 }
