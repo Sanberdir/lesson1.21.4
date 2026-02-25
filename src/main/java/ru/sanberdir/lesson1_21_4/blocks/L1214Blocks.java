@@ -12,6 +12,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableRotatedPillarBlock;
+import ru.sanberdir.lesson1_21_4.blocks.custom.ModSaplingBlock;
 import ru.sanberdir.lesson1_21_4.worldgen.tree.ModTreeGrowers;
 
 public class L1214Blocks {
@@ -85,7 +86,7 @@ public class L1214Blocks {
     // Саженец
     public static final DeferredBlock<Block> USUAL_SAPLING = BLOCKS.registerBlock(
             "usual_sapling",
-            props -> new SaplingBlock(ModTreeGrowers.USUAL, props),
+            props -> new ModSaplingBlock(ModTreeGrowers.USUAL, props, () -> Blocks.NETHERRACK),
             BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
     );
 }

@@ -36,7 +36,7 @@ public class ModConfiguredFeatures {
                 new ForkingTrunkPlacer(4, 4, 3),
                 BlockStateProvider.simple(L1214Blocks.USUAL_LEAVES.get()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.NETHERRACK)).build());
 
     }
 
