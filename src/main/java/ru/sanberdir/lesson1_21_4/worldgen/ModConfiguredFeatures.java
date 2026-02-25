@@ -31,17 +31,11 @@ public class ModConfiguredFeatures {
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
-
-
-
-
         register(context, USUAL_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(L1214Blocks.USUAL_LOG.get()),
                 new ForkingTrunkPlacer(4, 4, 3),
-
                 BlockStateProvider.simple(L1214Blocks.USUAL_LEAVES.get()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
-
                 new TwoLayersFeatureSize(1, 0, 2)).build());
 
     }

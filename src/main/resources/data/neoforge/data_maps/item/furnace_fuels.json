@@ -2,6 +2,9 @@
   "values": {
     "lesson1_21_4:usual_leaves": {
       "burn_time": 100
+    },
+    "lesson1_21_4:usual_sapling": {
+      "burn_time": 200
     }
   }
 }

@@ -12,8 +12,11 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
+import ru.sanberdir.lesson1_21_4.worldgen.ModBiomeModifiers;
 import ru.sanberdir.lesson1_21_4.worldgen.ModConfiguredFeatures;
+import ru.sanberdir.lesson1_21_4.worldgen.ModPlacedFeatures;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,6 +28,8 @@ public class DataGenerators {
 
     // Наш BUILDER для NeoForge DatapackBuiltinEntriesProvider
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 
     @SubscribeEvent
@@ -32,13 +37,8 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
-
         // Обязательно передаем свой BUILDER и свой modid
         generator.addProvider(true, new DatapackBuiltinEntriesProvider(
-                output,
-                lookupProvider,
-                BUILDER,
-                Set.of(Lesson1_21_4.MODID) // <--- твой modid, а не biomesoplenty
-        ));
+                output, lookupProvider,BUILDER,Set.of(Lesson1_21_4.MODID)));
     }
 }

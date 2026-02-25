@@ -4,10 +4,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -63,6 +60,7 @@ public class L1214Blocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS)
                     .strength(1.0F, 3.0F).sound(SoundType.BAMBOO_WOOD).ignitedByLava()
     );
+
     public static final DeferredBlock<Block> USUAL_LEAVES = BLOCKS.registerBlock(
             "usual_leaves",
             props -> new LeavesBlock(props) {
@@ -81,13 +79,13 @@ public class L1214Blocks {
                     return 30;
                 }
             },
-            BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.OAK_LEAVES)
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)
     );
 
     // Саженец
     public static final DeferredBlock<Block> USUAL_SAPLING = BLOCKS.registerBlock(
             "usual_sapling",
             props -> new SaplingBlock(ModTreeGrowers.USUAL, props),
-            BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.OAK_SAPLING)
+            BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
     );
 }
