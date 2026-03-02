@@ -3,6 +3,7 @@ package ru.sanberdir.lesson1_21_4.blocks;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -88,5 +89,37 @@ public class L1214Blocks {
             "usual_sapling",
             props -> new ModSaplingBlock(ModTreeGrowers.USUAL, props, () -> Blocks.NETHERRACK),
             BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)
+    );
+
+
+    public static final DeferredBlock<Block> BISMUTH_BLOCK = BLOCKS.registerBlock(
+            "bismuth_block",
+            Block::new,
+            BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).instrument(NoteBlockInstrument.BANJO));
+    // Regular bismuth ore
+    public static final DeferredBlock<Block> BISMUTH_ORE = BLOCKS.registerBlock(
+            "bismuth_ore",
+            props -> new DropExperienceBlock(UniformInt.of(2, 4), props),
+            BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops().sound(SoundType.STONE).instrument(NoteBlockInstrument.BANJO)
+    );
+    // Deepslate bismuth ore
+    public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = BLOCKS.registerBlock(
+            "bismuth_deepslate_ore",
+            props -> new DropExperienceBlock(UniformInt.of(3, 6), props),
+            BlockBehaviour.Properties.of().strength(4.0f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE).instrument(NoteBlockInstrument.BANJO)
+    );
+
+    // End bismuth ore
+    public static final DeferredBlock<Block> BISMUTH_END_ORE = BLOCKS.registerBlock(
+            "bismuth_end_ore",
+            props -> new DropExperienceBlock(UniformInt.of(5, 9), props),
+            BlockBehaviour.Properties.of().strength(7.0f).requiresCorrectToolForDrops().sound(SoundType.STONE).instrument(NoteBlockInstrument.BANJO)  // Adding stone sound as it wasn't specified in original
+    );
+
+    // Nether bismuth ore
+    public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = BLOCKS.registerBlock(
+            "bismuth_nether_ore",
+            props -> new DropExperienceBlock(UniformInt.of(1, 5), props),
+            BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops().sound(SoundType.NETHER_ORE).instrument(NoteBlockInstrument.BANJO)  // Using nether ore sound for authenticity
     );
 }

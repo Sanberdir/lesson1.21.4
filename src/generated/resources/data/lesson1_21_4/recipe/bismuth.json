@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "lesson1_21_4:bismuth_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "lesson1_21_4:bismuth"
+  }
+}

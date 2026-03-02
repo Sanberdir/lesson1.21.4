@@ -16,6 +16,13 @@ public class L1214Items {
             properties -> new Item(properties),
             new Item.Properties().food(new FoodProperties(12,0.5F,false)));
 
+    public static final DeferredItem<Item> BISMUTH = ITEMS.registerItem("bismuth",
+            properties -> new Item(properties),
+            new Item.Properties());
+    public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.registerItem("raw_bismuth",
+            properties -> new Item(properties),
+            new Item.Properties());
+
     public static final DeferredItem<Item> NUGGET_OBSIDIAN2 = ITEMS.registerItem("nugget_obsidian2",
             properties -> new FuelItem(properties,1200),
             new Item.Properties());
@@ -90,6 +97,47 @@ public class L1214Items {
             "usual_sapling",
             properties -> new BlockItem(
                     L1214Blocks.USUAL_SAPLING.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+
+    public static final DeferredItem<BlockItem> BISMUTH_BLOCK = ITEMS.registerItem(
+            "bismuth_block",
+            properties -> new BlockItem(
+                    L1214Blocks.BISMUTH_BLOCK.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> BISMUTH_ORE = ITEMS.registerItem(
+            "bismuth_ore",
+            properties -> new BlockItem(
+                    L1214Blocks.BISMUTH_ORE.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> BISMUTH_DEEPSLATE_ORE = ITEMS.registerItem(
+            "bismuth_deepslate_ore",
+            properties -> new BlockItem(
+                    L1214Blocks.BISMUTH_DEEPSLATE_ORE.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> BISMUTH_NETHER_ORE = ITEMS.registerItem(
+            "bismuth_nether_ore",
+            properties -> new BlockItem(
+                    L1214Blocks.BISMUTH_NETHER_ORE.get(),
+                    properties
+            ),
+            new Item.Properties()
+    );
+    public static final DeferredItem<BlockItem> BISMUTH_END_ORE = ITEMS.registerItem(
+            "bismuth_end_ore",
+            properties -> new BlockItem(
+                    L1214Blocks.BISMUTH_END_ORE.get(),
                     properties
             ),
             new Item.Properties()

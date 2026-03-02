@@ -21,18 +21,26 @@ public class L1214Tabs {
                     .icon(() -> new ItemStack(L1214Items.NUGGET_OBSIDIAN.get()))
                     .displayItems((params, output) -> {
                         // предметы
-                        output.accept(L1214Items.NUGGET_OBSIDIAN.get());
-                        output.accept(L1214Items.NUGGET_OBSIDIAN2.get());
+                        output.accept(L1214Items.NUGGET_OBSIDIAN);
+                        output.accept(L1214Items.NUGGET_OBSIDIAN2);
+                        output.accept(L1214Items.BISMUTH);
+                        output.accept(L1214Items.RAW_BISMUTH);
+
                         // блоки
-                        output.accept(L1214Items.MY_BETTER_BLOCK.get());
-                        output.accept(L1214Items.MY_BETTER_BLOCK2.get());
-                        output.accept(L1214Items.USUAL_PLANKS.get());
-                        output.accept(L1214Items.USUAL_WOOD.get());
+                        output.accept(L1214Items.MY_BETTER_BLOCK);
+                        output.accept(L1214Items.MY_BETTER_BLOCK2);
+                        output.accept(L1214Items.USUAL_PLANKS);
+                        output.accept(L1214Items.USUAL_WOOD);
                         output.accept(L1214Items.USUAL_LOG);
                         output.accept(L1214Items.STRIPPED_USUAL_WOOD);
                         output.accept(L1214Items.STRIPPED_USUAL_LOG);
                         output.accept(L1214Items.USUAL_LEAVES);
                         output.accept(L1214Items.USUAL_SAPLING);
+                        output.accept(L1214Items.BISMUTH_BLOCK);
+                        output.accept(L1214Items.BISMUTH_ORE);
+                        output.accept(L1214Items.BISMUTH_DEEPSLATE_ORE);
+                        output.accept(L1214Items.BISMUTH_NETHER_ORE);
+                        output.accept(L1214Items.BISMUTH_END_ORE);
                     })
                     .build());
 }

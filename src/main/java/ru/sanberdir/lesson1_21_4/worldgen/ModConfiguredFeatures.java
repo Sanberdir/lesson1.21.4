@@ -29,6 +29,10 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> USUAL_KEY = registerKey("usual");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_BISMUTH_ORE_KEY = registerKey("bismuth_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> NETHER_BISMUTH_ORE_KEY = registerKey("nether_bismuth_ore");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> END_BISMUTH_ORE_KEY = registerKey("end_bismuth_ore");
+
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
 
         register(context, USUAL_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
@@ -37,6 +41,24 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.simple(L1214Blocks.USUAL_LEAVES.get()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
                 new TwoLayersFeatureSize(1, 0, 2)).dirt(BlockStateProvider.simple(Blocks.NETHERRACK)).build());
+
+        RuleTest stoneReplaceables = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
+        RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest netherrackReplaceables = new BlockMatchTest(Blocks.NETHERRACK);
+        RuleTest endReplaceables = new BlockMatchTest(Blocks.END_STONE);
+
+        List<OreConfiguration.TargetBlockState> overworldBismuthOres = List.of(
+                OreConfiguration.target(stoneReplaceables, L1214Blocks.BISMUTH_ORE.get().defaultBlockState()),
+                OreConfiguration.target(deepslateReplaceables, L1214Blocks.BISMUTH_DEEPSLATE_ORE.get().defaultBlockState())
+        );
+
+        register(context, OVERWORLD_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(overworldBismuthOres, 7));
+
+
+        register(context, NETHER_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
+                L1214Blocks.BISMUTH_NETHER_ORE.get().defaultBlockState(), 9));
+        register(context, END_BISMUTH_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
+                L1214Blocks.BISMUTH_END_ORE.get().defaultBlockState(), 5));
 
     }
 
