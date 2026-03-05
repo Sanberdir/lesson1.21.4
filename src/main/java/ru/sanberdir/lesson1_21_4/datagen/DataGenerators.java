@@ -49,6 +49,7 @@ public class DataGenerators {
                 List.of(
                         new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new,LootContextParamSets.BLOCK)),lookupProvider));
 
+
         var blockTags = new ModBlockTagProvider(output, lookupProvider);
         generator.addProvider(true, blockTags);
 
