@@ -24,6 +24,7 @@ import java.util.function.Function;
 
 public class L1214Blocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks("lesson1_21_4");
+
     public static final DeferredBlock<Block> MY_BETTER_BLOCK = registerBlock("my_better_block",
             (properties) -> new Block(properties.destroyTime(2.0f).explosionResistance(10.0f).sound(SoundType.BASALT)));
 
