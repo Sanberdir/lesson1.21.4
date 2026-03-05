@@ -83,26 +83,26 @@ public class L1214Blocks {
 
     public static final DeferredBlock<StairBlock> USUAL_STAIRS = registerBlock("usual_stairs",
             (properties) -> new StairBlock(L1214Blocks.USUAL_PLANKS.get().defaultBlockState(),
-                    properties.strength(2f).requiresCorrectToolForDrops()));
+                    properties.strength(2f).sound(SoundType.WOOD).requiresCorrectToolForDrops()));
     public static final DeferredBlock<SlabBlock> USUAL_SLAB = registerBlock("usual_slab",
-            (properties) -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+            (properties) -> new SlabBlock(properties.strength(2f).sound(SoundType.WOOD).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<PressurePlateBlock> USUAL_PRESSURE_PLATE = registerBlock("usual_pressure_plate",
             (properties) -> new PressurePlateBlock(BlockSetType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<ButtonBlock> USUAL_BUTTON = registerBlock("usual_button",
-            (properties) -> new ButtonBlock(BlockSetType.ACACIA, 20, properties.strength(2f).requiresCorrectToolForDrops().noCollission()));
+            (properties) -> new ButtonBlock(BlockSetType.ACACIA, 20, properties.strength(2f).sound(SoundType.WOOD).requiresCorrectToolForDrops().noCollission()));
 
     public static final DeferredBlock<FenceBlock> USUAL_FENCE = registerBlock("usual_fence",
-            (properties) -> new FenceBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+            (properties) -> new FenceBlock(properties.strength(2f).sound(SoundType.WOOD).requiresCorrectToolForDrops()));
     public static final DeferredBlock<FenceGateBlock> USUAL_FENCE_GATE = registerBlock("usual_fence_gate",
-            (properties) -> new FenceGateBlock(WoodType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops()));
+            (properties) -> new FenceGateBlock(WoodType.ACACIA, properties.sound(SoundType.WOOD).strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<WallBlock> USUAL_WALL = registerBlock("usual_wall",
-            (properties) -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+            (properties) -> new WallBlock(properties.strength(2f).sound(SoundType.BAMBOO).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<DoorBlock> USUAL_DOOR = registerBlock("usual_door",
-            (properties) -> new DoorBlock(BlockSetType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops().noOcclusion()));
+            (properties) -> new DoorBlock(BlockSetType.ACACIA, properties.sound(SoundType.WOOD).strength(2f).requiresCorrectToolForDrops().noOcclusion()));
     public static final DeferredBlock<TrapDoorBlock> USUAL_TRAPDOOR = registerBlock("usual_trapdoor",
-            (properties) -> new TrapDoorBlock(BlockSetType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops().noOcclusion()));
+            (properties) -> new TrapDoorBlock(BlockSetType.ACACIA, properties.sound(SoundType.WOOD).strength(2f).requiresCorrectToolForDrops().noOcclusion()));
 
 
     public static final DeferredBlock<Block> BISMUTH_BLOCK = registerBlock(

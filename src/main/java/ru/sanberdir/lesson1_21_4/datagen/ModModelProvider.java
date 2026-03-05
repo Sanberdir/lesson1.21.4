@@ -37,7 +37,6 @@ public class ModModelProvider extends ModelProvider {
 
 
         blockModels.family(L1214Blocks.USUAL_PLANKS.get())
-
                 .fence(L1214Blocks.USUAL_FENCE.get())
                 .fenceGate(L1214Blocks.USUAL_FENCE_GATE.get())
                 .wall(L1214Blocks.USUAL_WALL.get())
@@ -53,9 +52,7 @@ public class ModModelProvider extends ModelProvider {
 
 
         blockModels.createTintedLeaves(L1214Blocks.USUAL_LEAVES.get(), TexturedModel.LEAVES, -12012264);
-
         blockModels.createCrossBlock(L1214Blocks.USUAL_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
-
         itemModels.generateFlatItem(L1214Blocks.USUAL_SAPLING.get().asItem(), ModelTemplates.FLAT_ITEM);
 
 
