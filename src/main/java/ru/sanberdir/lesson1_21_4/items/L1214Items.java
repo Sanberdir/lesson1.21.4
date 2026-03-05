@@ -26,5 +26,4 @@ public class L1214Items {
     public static final DeferredItem<Item> NUGGET_OBSIDIAN2 = ITEMS.registerItem("nugget_obsidian2",
             properties -> new FuelItem(properties,1200),
             new Item.Properties());
-
 }

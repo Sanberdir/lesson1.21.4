@@ -62,7 +62,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(L1214Blocks.USUAL_STAIRS.get());
         add(L1214Blocks.USUAL_SLAB.get(),
                 block -> createSlabItemTable(L1214Blocks.USUAL_SLAB.get()));
-
         add(L1214Blocks.USUAL_DOOR.get(),
                 block -> createDoorTable(L1214Blocks.USUAL_DOOR.get()));
         dropSelf(L1214Blocks.USUAL_SAPLING.get());

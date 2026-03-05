@@ -23,7 +23,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(L1214Items.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN2.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN.get(), ModelTemplates.FLAT_ITEM);
-
+        itemModels.generateFlatItem(L1214Blocks.USUAL_SAPLING.get().asItem(), ModelTemplates.FLAT_ITEM);
 
 
         /* BLOCKS */
@@ -53,7 +53,7 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTintedLeaves(L1214Blocks.USUAL_LEAVES.get(), TexturedModel.LEAVES, -12012264);
         blockModels.createCrossBlock(L1214Blocks.USUAL_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
-        itemModels.generateFlatItem(L1214Blocks.USUAL_SAPLING.get().asItem(), ModelTemplates.FLAT_ITEM);
+
 
 
     }
