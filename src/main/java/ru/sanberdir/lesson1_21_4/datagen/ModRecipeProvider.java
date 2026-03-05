@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
@@ -29,13 +30,31 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(L1214Items.BISMUTH.get()), has(L1214Items.BISMUTH.get()))
                 .save(output);
 
+        stairBuilder(L1214Blocks.USUAL_STAIRS.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS)).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS)).save(output);
+        slab(RecipeCategory.BUILDING_BLOCKS, L1214Blocks.USUAL_SLAB.get(), L1214Blocks.USUAL_PLANKS.get());
+
+        buttonBuilder(L1214Blocks.USUAL_BUTTON.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get())).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS.get())).save(output);
+        pressurePlate(L1214Blocks.USUAL_PRESSURE_PLATE.get(), L1214Blocks.USUAL_PLANKS.get());
+
+        fenceBuilder(L1214Blocks.USUAL_FENCE.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get())).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS.get())).save(output);
+        fenceGateBuilder(L1214Blocks.USUAL_FENCE_GATE.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get())).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS.get())).save(output);
+        wall(RecipeCategory.BUILDING_BLOCKS, L1214Blocks.USUAL_WALL.get(), L1214Blocks.USUAL_PLANKS.get());
+
+        doorBuilder(L1214Blocks.USUAL_DOOR.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get())).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS.get())).save(output);
+        trapdoorBuilder(L1214Blocks.USUAL_TRAPDOOR.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get())).group("usual")
+                .unlockedBy("has_usual", has(L1214Blocks.USUAL_PLANKS.get())).save(output);
         // 9 слитков из блока
         shapeless(RecipeCategory.MISC, L1214Items.BISMUTH.get(), 9)
                 .requires(L1214Blocks.BISMUTH_BLOCK.get())
                 .unlockedBy(getHasName(L1214Blocks.BISMUTH_BLOCK.get()), has(L1214Blocks.BISMUTH_BLOCK.get()))
                 .save(output);
 // Пример рецепта с тегом
-        shapeless(RecipeCategory.MISC, L1214Items.USUAL_PLANKS, 4)
+        shapeless(RecipeCategory.MISC, L1214Blocks.USUAL_PLANKS, 4)
                 .requires(ItemTags.create(ResourceLocation.tryParse("minecraft:usual_logs")))
                 .unlockedBy("has_planks", has(ItemTags.create(ResourceLocation.tryParse("minecraft:usual_logs"))))
                 .save(output);

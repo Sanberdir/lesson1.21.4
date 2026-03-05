@@ -55,7 +55,7 @@ public class DataGenerators {
         var itemTags = new ModItemTagProvider(output,lookupProvider,blockTags.contentsGetter());
         generator.addProvider(true, itemTags);
 
-
+        generator.addProvider(true, new ModModelProvider(output));
         generator.addProvider(true, new ModRecipeProvider.Runner(output, lookupProvider) {
             @Override
             public @NotNull String getName() {

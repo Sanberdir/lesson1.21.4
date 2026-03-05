@@ -13,8 +13,18 @@
   "block.lesson1_21_4.usual_wood": "Usual Wood",
   "block.lesson1_21_4.usual_leaves": "Usual Leaves",
   "block.lesson1_21_4.usual_sapling": "Usual Sapling",
-  "block.lesson1_21_4.stripped_usual_log": "Stripped Usual Wood",
-  "block.lesson1_21_4.stripped_usual_wood": "Stripped Usual Log",
+  "block.lesson1_21_4.stripped_usual_log": "Stripped Usual Log",
+  "block.lesson1_21_4.stripped_usual_wood": "Stripped Usual Wood",
+
+  "block.lesson1_21_4.usual_stairs": "Usual Stairs",
+  "block.lesson1_21_4.usual_slab": "Usual Slab",
+  "block.lesson1_21_4.usual_pressure_plate": "Usual Pressure Plate",
+  "block.lesson1_21_4.usual_button": "Usual Button",
+  "block.lesson1_21_4.usual_fence": "Usual Fence",
+  "block.lesson1_21_4.usual_fence_gate": "Usual Fence Gate",
+  "block.lesson1_21_4.usual_wall": "Usual Wall",
+  "block.lesson1_21_4.usual_door": "Usual Door",
+  "block.lesson1_21_4.usual_trapdoor": "Usual Trapdoor",
 
   "item.lesson1_21_4.raw_bismuth": "Raw Bismuth",
   "item.lesson1_21_4.bismuth": "Bismuth",
@@ -32,6 +42,16 @@
   "item.lesson1_21_4.usual_wood": "Usual Wood",
   "item.lesson1_21_4.usual_leaves": "Usual Leaves",
   "item.lesson1_21_4.usual_sapling": "Usual Sapling",
-  "item.lesson1_21_4.stripped_usual_log": "Stripped Usual Wood",
-  "item.lesson1_21_4.stripped_usual_wood": "Stripped Usual Log"
+  "item.lesson1_21_4.stripped_usual_log": "Stripped Usual Log",
+  "item.lesson1_21_4.stripped_usual_wood": "Stripped Usual Wood",
+
+  "item.lesson1_21_4.usual_stairs": "Usual Stairs",
+  "item.lesson1_21_4.usual_slab": "Usual Slab",
+  "item.lesson1_21_4.usual_pressure_plate": "Usual Pressure Plate",
+  "item.lesson1_21_4.usual_button": "Usual Button",
+  "item.lesson1_21_4.usual_fence": "Usual Fence",
+  "item.lesson1_21_4.usual_fence_gate": "Usual Fence Gate",
+  "item.lesson1_21_4.usual_wall": "Usual Wall",
+  "item.lesson1_21_4.usual_door": "Usual Door",
+  "item.lesson1_21_4.usual_trapdoor": "Usual Trapdoor"
 }

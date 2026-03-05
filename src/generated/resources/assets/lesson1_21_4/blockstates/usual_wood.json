@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "lesson1_21_4:block/usual_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "lesson1_21_4:block/usual_wood"
+    },
+    "axis=z": {
+      "model": "lesson1_21_4:block/usual_wood",
+      "x": 90
+    }
+  }
+}

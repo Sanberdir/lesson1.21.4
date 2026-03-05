@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "usual",
+  "ingredients": [
+    "lesson1_21_4:usual_planks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lesson1_21_4:usual_button"
+  }
+}

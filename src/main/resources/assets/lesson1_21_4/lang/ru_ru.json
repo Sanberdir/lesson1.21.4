@@ -16,6 +16,16 @@
   "block.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
   "block.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина",
 
+  "block.lesson1_21_4.usual_stairs": "Обычные ступеньки",
+  "block.lesson1_21_4.usual_slab": "Обычная плита",
+  "block.lesson1_21_4.usual_pressure_plate": "Обычная нажимная плита",
+  "block.lesson1_21_4.usual_button": "Обычная кнопка",
+  "block.lesson1_21_4.usual_fence": "Обычный забор",
+  "block.lesson1_21_4.usual_fence_gate": "Обычная калитка",
+  "block.lesson1_21_4.usual_wall": "Обычная стена",
+  "block.lesson1_21_4.usual_door": "Обычная дверь",
+  "block.lesson1_21_4.usual_trapdoor": "Обычный люк",
+
   "item.lesson1_21_4.nugget_obsidian": "Кусочек обсидиана",
   "item.lesson1_21_4.nugget_obsidian2": "Кусочек обсидиана 2",
 
@@ -34,5 +44,15 @@
   "item.lesson1_21_4.usual_leaves": "Обычная листва",
   "item.lesson1_21_4.usual_sapling": "Обычный саженец",
   "item.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
-  "item.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина"
+  "item.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина",
+
+  "item.lesson1_21_4.usual_stairs": "Обычные ступеньки",
+  "item.lesson1_21_4.usual_slab": "Обычная плита",
+  "item.lesson1_21_4.usual_pressure_plate": "Обычная нажимная плита",
+  "item.lesson1_21_4.usual_button": "Обычная кнопка",
+  "item.lesson1_21_4.usual_fence": "Обычный забор",
+  "item.lesson1_21_4.usual_fence_gate": "Обычная калитка",
+  "item.lesson1_21_4.usual_wall": "Обычная стена",
+  "item.lesson1_21_4.usual_door": "Обычная дверь",
+  "item.lesson1_21_4.usual_trapdoor": "Обычный люк"
 }

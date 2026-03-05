@@ -52,6 +52,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(L1214Blocks.USUAL_WOOD.get());
         dropSelf(L1214Blocks.STRIPPED_USUAL_WOOD.get());
         dropSelf(L1214Blocks.USUAL_PLANKS.get());
+
+        dropSelf(L1214Blocks.USUAL_FENCE.get());
+        dropSelf(L1214Blocks.USUAL_FENCE_GATE.get());
+        dropSelf(L1214Blocks.USUAL_WALL.get());
+        dropSelf(L1214Blocks.USUAL_TRAPDOOR.get());
+        dropSelf(L1214Blocks.USUAL_PRESSURE_PLATE.get());
+        dropSelf(L1214Blocks.USUAL_BUTTON.get());
+        dropSelf(L1214Blocks.USUAL_STAIRS.get());
+        add(L1214Blocks.USUAL_SLAB.get(),
+                block -> createSlabItemTable(L1214Blocks.USUAL_SLAB.get()));
+
+        add(L1214Blocks.USUAL_DOOR.get(),
+                block -> createDoorTable(L1214Blocks.USUAL_DOOR.get()));
         dropSelf(L1214Blocks.USUAL_SAPLING.get());
         add(L1214Blocks.USUAL_LEAVES.get(),
                 block -> createBlazeLeavesDrops(

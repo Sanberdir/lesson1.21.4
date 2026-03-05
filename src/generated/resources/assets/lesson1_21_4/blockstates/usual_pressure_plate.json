@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "lesson1_21_4:block/usual_pressure_plate"
+    },
+    "powered=true": {
+      "model": "lesson1_21_4:block/usual_pressure_plate_down"
+    }
+  }
+}

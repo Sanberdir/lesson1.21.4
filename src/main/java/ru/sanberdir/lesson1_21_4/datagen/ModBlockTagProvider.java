@@ -27,6 +27,15 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(L1214Blocks.BISMUTH_END_ORE.get());
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(L1214Blocks.USUAL_PLANKS.get())
+                .add(L1214Blocks.USUAL_WALL.get())
+                .add(L1214Blocks.USUAL_FENCE.get())
+                .add(L1214Blocks.USUAL_FENCE_GATE.get())
+                .add(L1214Blocks.USUAL_DOOR.get())
+                .add(L1214Blocks.USUAL_TRAPDOOR.get())
+                .add(L1214Blocks.USUAL_BUTTON.get())
+                .add(L1214Blocks.USUAL_PRESSURE_PLATE.get())
+                .add(L1214Blocks.USUAL_SLAB.get())
+                .add(L1214Blocks.USUAL_STAIRS.get())
                 .add(L1214Blocks.USUAL_WOOD.get())
                 .add(L1214Blocks.STRIPPED_USUAL_LOG.get())
                 .add(L1214Blocks.STRIPPED_USUAL_WOOD.get())
@@ -35,6 +44,26 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(L1214Blocks.USUAL_LEAVES.get());
         tag(BlockTags.LEAVES)
                 .add(L1214Blocks.USUAL_LEAVES.get());
+        tag(BlockTags.PLANKS)
+                .add(L1214Blocks.USUAL_PLANKS.get());
+        tag(BlockTags.WALLS)
+                .add(L1214Blocks.USUAL_WALL.get());
+        tag(BlockTags.FENCES)
+                .add(L1214Blocks.USUAL_FENCE.get());
+        tag(BlockTags.FENCE_GATES)
+                .add(L1214Blocks.USUAL_FENCE_GATE.get());
+        tag(BlockTags.WOODEN_DOORS)
+                .add(L1214Blocks.USUAL_DOOR.get());
+        tag(BlockTags.WOODEN_TRAPDOORS)
+                .add(L1214Blocks.USUAL_TRAPDOOR.get());
+        tag(BlockTags.WOODEN_BUTTONS)
+                .add(L1214Blocks.USUAL_BUTTON.get());
+        tag(BlockTags.WOODEN_PRESSURE_PLATES)
+                .add(L1214Blocks.USUAL_PRESSURE_PLATE.get());
+        tag(BlockTags.WOODEN_SLABS)
+                .add(L1214Blocks.USUAL_SLAB.get());
+        tag(BlockTags.WOODEN_STAIRS)
+                .add(L1214Blocks.USUAL_STAIRS.get());
         tag(BlockTags.SAPLINGS)
                 .add(L1214Blocks.USUAL_SAPLING.get());
         tag(ModBlockTags.USUAL_LOGS)
@@ -42,6 +71,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(L1214Blocks.STRIPPED_USUAL_LOG.get())
                 .add(L1214Blocks.USUAL_WOOD.get())
                 .add(L1214Blocks.STRIPPED_USUAL_WOOD.get());
+
         tag(BlockTags.LOGS_THAT_BURN)
                 .addTags(ModBlockTags.USUAL_LOGS);
         tag(BlockTags.NEEDS_IRON_TOOL)
