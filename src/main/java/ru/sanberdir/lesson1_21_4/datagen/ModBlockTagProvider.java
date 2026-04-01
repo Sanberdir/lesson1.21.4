@@ -71,7 +71,25 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(L1214Blocks.STRIPPED_USUAL_LOG.get())
                 .add(L1214Blocks.USUAL_WOOD.get())
                 .add(L1214Blocks.STRIPPED_USUAL_WOOD.get());
-
+        tag(BlockTags.STANDING_SIGNS)
+                .add(L1214Blocks.USUAL_SIGN.get());
+        tag(BlockTags.WALL_SIGNS)
+                .add(L1214Blocks.USUAL_WALL_SIGN.get());
+        tag(BlockTags.ALL_SIGNS)
+                .add(L1214Blocks.USUAL_SIGN.get())
+                .add(L1214Blocks.USUAL_WALL_SIGN.get());
+        tag(BlockTags.CEILING_HANGING_SIGNS)
+                .add(L1214Blocks.USUAL_HANGING_SIGN.get());
+        tag(BlockTags.WALL_HANGING_SIGNS)
+                .add(L1214Blocks.USUAL_WALL_HANGING_SIGN.get());
+        tag(BlockTags.ALL_HANGING_SIGNS)
+                .add(L1214Blocks.USUAL_HANGING_SIGN.get())
+                .add(L1214Blocks.USUAL_WALL_HANGING_SIGN.get());
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(L1214Blocks.USUAL_SIGN.get())
+                .add(L1214Blocks.USUAL_WALL_SIGN.get())
+                .add(L1214Blocks.USUAL_HANGING_SIGN.get())
+                .add(L1214Blocks.USUAL_WALL_HANGING_SIGN.get());
         tag(BlockTags.LOGS_THAT_BURN)
                 .addTags(ModBlockTags.USUAL_LOGS);
         tag(BlockTags.NEEDS_IRON_TOOL)

@@ -67,7 +67,13 @@ public class ModRecipeProvider extends RecipeProvider {
                 L1214Blocks.BISMUTH_END_ORE.get(),
                 L1214Blocks.BISMUTH_DEEPSLATE_ORE.get()
         );
+// Обычная табличка
+        signBuilder(L1214Blocks.USUAL_SIGN.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get()))
+                .unlockedBy("has_planks", has(L1214Blocks.USUAL_PLANKS.get()))
+                .save(output);
 
+// Висячая табличка
+        hangingSign(L1214Blocks.USUAL_HANGING_SIGN.get(), L1214Blocks.STRIPPED_USUAL_LOG.get());
         oreSmelting(ores, RecipeCategory.MISC, L1214Items.BISMUTH.get(), 0.25f, 200, "bismuth");
         oreBlasting(ores, RecipeCategory.MISC, L1214Items.BISMUTH.get(), 0.25f, 100, "bismuth");
     }

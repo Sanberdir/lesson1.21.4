@@ -15,10 +15,10 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableRotatedPillarBlock;
-import ru.sanberdir.lesson1_21_4.blocks.custom.ModSaplingBlock;
+import ru.sanberdir.lesson1_21_4.blocks.custom.*;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.worldgen.tree.ModTreeGrowers;
+import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
 import java.util.function.Function;
 
@@ -72,8 +72,25 @@ public class L1214Blocks {
                     return 30;
                 }
             });
+    public static final DeferredBlock<Block> USUAL_SIGN = BLOCKS.registerBlock("usual_sign",
+            (properties) -> new ModStandingSignBlock(
+                    properties.noCollission().strength(1.0F).ignitedByLava().sound(SoundType.WOOD),
+                    ModWoodTypes.USUAL));
 
+    public static final DeferredBlock<Block> USUAL_WALL_SIGN = BLOCKS.registerBlock("usual_wall_sign",
+            (properties) -> new ModWallSignBlock(
+                    properties.noCollission().strength(1.0F).ignitedByLava().sound(SoundType.WOOD),
+                    ModWoodTypes.USUAL));
 
+    public static final DeferredBlock<Block> USUAL_HANGING_SIGN = BLOCKS.registerBlock("usual_hanging_sign",
+            (properties) -> new ModHangingSignBlock(
+                    properties.noCollission().strength(1.0F).ignitedByLava().sound(SoundType.HANGING_SIGN),
+                    ModWoodTypes.USUAL));
+
+    public static final DeferredBlock<Block> USUAL_WALL_HANGING_SIGN = BLOCKS.registerBlock("usual_wall_hanging_sign",
+            (properties) -> new ModWallHangingSignBlock(
+                    properties.noCollission().strength(1.0F).ignitedByLava().sound(SoundType.HANGING_SIGN),
+                    ModWoodTypes.USUAL));
     // Саженец
     public static final DeferredBlock<Block> USUAL_SAPLING = registerBlock(
             "usual_sapling",

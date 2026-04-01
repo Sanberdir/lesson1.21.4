@@ -51,6 +51,9 @@ public class L1214Tabs {
                         output.accept(L1214Blocks.BISMUTH_DEEPSLATE_ORE);
                         output.accept(L1214Blocks.BISMUTH_NETHER_ORE);
                         output.accept(L1214Blocks.BISMUTH_END_ORE);
+
+                        output.accept(L1214Blocks.USUAL_SIGN.get());
+                        output.accept(L1214Blocks.USUAL_HANGING_SIGN.get());
                     })
                     .build());
 }

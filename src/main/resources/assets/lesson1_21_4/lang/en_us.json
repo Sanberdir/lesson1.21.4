@@ -16,6 +16,16 @@
   "block.lesson1_21_4.stripped_usual_log": "Stripped Usual Log",
   "block.lesson1_21_4.stripped_usual_wood": "Stripped Usual Wood",
 
+  "block.lesson1_21_4.usual_sign": "Usual Sign",
+  "item.lesson1_21_4.usual_sign": "Usual Sign",
+
+  "block.lesson1_21_4.usual_wall_sign": "Usual Wall Sign",
+
+  "block.lesson1_21_4.usual_hanging_sign": "Usual Hanging Sign",
+  "item.lesson1_21_4.usual_hanging_sign": "Usual Hanging Sign",
+
+  "block.lesson1_21_4.usual_wall_hanging_sign": "Usual Wall Hanging Sign",
+
   "block.lesson1_21_4.usual_stairs": "Usual Stairs",
   "block.lesson1_21_4.usual_slab": "Usual Slab",
   "block.lesson1_21_4.usual_pressure_plate": "Usual Pressure Plate",

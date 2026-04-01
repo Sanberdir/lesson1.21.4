@@ -6,6 +6,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
@@ -55,6 +56,19 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createCrossBlock(L1214Blocks.USUAL_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
 
+        blockModels.createHangingSign(
+                L1214Blocks.USUAL_PLANKS.get(),
+                L1214Blocks.USUAL_HANGING_SIGN.get(),
+                L1214Blocks.USUAL_WALL_HANGING_SIGN.get()
+        );
+// Sign вручную по аналогии с createHangingSign
+        ResourceLocation signTexture = blockModels.createParticleOnlyBlockModel(
+                L1214Blocks.USUAL_SIGN.get(),
+                L1214Blocks.USUAL_PLANKS.get()
+        );
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(L1214Blocks.USUAL_SIGN.get(), signTexture));
+        blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(L1214Blocks.USUAL_WALL_SIGN.get(), signTexture));
+        blockModels.registerSimpleFlatItemModel(L1214Blocks.USUAL_SIGN.get().asItem());
 
     }
 

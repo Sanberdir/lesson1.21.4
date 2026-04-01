@@ -42,6 +42,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(L1214Blocks.USUAL_FENCE_GATE.get().asItem());
         tag(ItemTags.WOODEN_DOORS)
                 .add(L1214Blocks.USUAL_DOOR.get().asItem());
+        tag(ItemTags.SIGNS)
+                .add(L1214Blocks.USUAL_SIGN.get().asItem());
         tag(ItemTags.WOODEN_TRAPDOORS)
                 .add(L1214Blocks.USUAL_TRAPDOOR.get().asItem());
         tag(ItemTags.WOODEN_BUTTONS)
@@ -50,6 +52,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(L1214Blocks.USUAL_PRESSURE_PLATE.get().asItem());
         tag(ItemTags.WOODEN_SLABS)
                 .add(L1214Blocks.USUAL_SLAB.get().asItem());
+        tag(ItemTags.HANGING_SIGNS)
+                .add(L1214Blocks.USUAL_HANGING_SIGN.get().asItem());
         tag(ItemTags.WOODEN_STAIRS)
                 .add(L1214Blocks.USUAL_STAIRS.get().asItem());
         tag(ModItemTags.CHARCOAL_RECIPE)

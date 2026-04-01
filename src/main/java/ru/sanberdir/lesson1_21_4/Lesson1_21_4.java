@@ -1,6 +1,10 @@
 package ru.sanberdir.lesson1_21_4;
 
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -9,13 +13,16 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
+import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
+import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
 @Mod(Lesson1_21_4.MODID)
 public class Lesson1_21_4 {
@@ -30,6 +37,11 @@ public class Lesson1_21_4 {
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
+            event.registerBlockEntityRenderer(ModBlockEntities.USUAL_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.USUAL_HANGING_SIGN.get(), HangingSignRenderer::new);
+        });
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -40,7 +52,6 @@ public class Lesson1_21_4 {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
-
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -52,6 +63,8 @@ public class Lesson1_21_4 {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            Sheets.addWoodType(ModWoodTypes.USUAL);
+
 
         }
     }

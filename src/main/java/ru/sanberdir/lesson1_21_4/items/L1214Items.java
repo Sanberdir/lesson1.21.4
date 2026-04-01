@@ -2,7 +2,9 @@ package ru.sanberdir.lesson1_21_4.items;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
@@ -26,4 +28,16 @@ public class L1214Items {
     public static final DeferredItem<Item> NUGGET_OBSIDIAN2 = ITEMS.registerItem("nugget_obsidian2",
             properties -> new FuelItem(properties,1200),
             new Item.Properties());
+
+    public static final DeferredItem<Item> USUAL_SIGN_ITEM = ITEMS.registerItem("usual_sign",
+            properties -> new SignItem(
+                    L1214Blocks.USUAL_SIGN.get(),
+                    L1214Blocks.USUAL_WALL_SIGN.get(),
+                    properties));
+
+    public static final DeferredItem<Item> USUAL_HANGING_SIGN_ITEM = ITEMS.registerItem("usual_hanging_sign",
+            properties -> new HangingSignItem(
+                    L1214Blocks.USUAL_HANGING_SIGN.get(),
+                    L1214Blocks.USUAL_WALL_HANGING_SIGN.get(),
+                    properties));
 }
