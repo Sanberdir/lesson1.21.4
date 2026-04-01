@@ -54,9 +54,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(L1214Blocks.USUAL_PLANKS.get());
         // SIGNS !!!
         dropSelf(L1214Blocks.USUAL_SIGN.get());
+
         add(L1214Blocks.USUAL_WALL_SIGN.get(),
                 block -> createSingleItemTable(L1214Blocks.USUAL_SIGN.get()));
+
         dropSelf(L1214Blocks.USUAL_HANGING_SIGN.get());
+
         add(L1214Blocks.USUAL_WALL_HANGING_SIGN.get(),
                 block -> createSingleItemTable(L1214Blocks.USUAL_HANGING_SIGN.get()));
 

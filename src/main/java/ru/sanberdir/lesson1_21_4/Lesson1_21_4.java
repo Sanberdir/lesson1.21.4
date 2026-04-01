@@ -38,6 +38,7 @@ public class Lesson1_21_4 {
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+
         modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_SIGN.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_HANGING_SIGN.get(), HangingSignRenderer::new);

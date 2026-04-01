@@ -68,6 +68,7 @@ public class ModModelProvider extends ModelProvider {
         );
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(L1214Blocks.USUAL_SIGN.get(), signTexture));
         blockModels.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(L1214Blocks.USUAL_WALL_SIGN.get(), signTexture));
+
         blockModels.registerSimpleFlatItemModel(L1214Blocks.USUAL_SIGN.get().asItem());
 
     }
