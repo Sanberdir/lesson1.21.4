@@ -63,5 +63,8 @@
   "item.lesson1_21_4.usual_fence_gate": "Usual Fence Gate",
   "item.lesson1_21_4.usual_wall": "Usual Wall",
   "item.lesson1_21_4.usual_door": "Usual Door",
-  "item.lesson1_21_4.usual_trapdoor": "Usual Trapdoor"
+  "item.lesson1_21_4.usual_trapdoor": "Usual Trapdoor",
+  "item.lesson1_21_4.usual_boat": "Usual Boat",
+  "item.lesson1_21_4.usual_chest_boat": "Usual Chest Boat",
+  "entity.lesson1_21_4.mod_chest_boat_usual": "Usual Chest Boa"
 }

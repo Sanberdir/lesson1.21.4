@@ -10,6 +10,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.custom.FuelItem;
+import ru.sanberdir.lesson1_21_4.items.custom.ModBoatItem;
+import ru.sanberdir.lesson1_21_4.items.entity.ModBoatEntityUsual;
 
 public class L1214Items {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Lesson1_21_4.MODID);
@@ -40,4 +42,12 @@ public class L1214Items {
                     L1214Blocks.USUAL_HANGING_SIGN.get(),
                     L1214Blocks.USUAL_WALL_HANGING_SIGN.get(),
                     properties));
+
+    public static final DeferredItem<Item> USUAL_BOAT = ITEMS.registerItem("usual_boat",
+            properties -> new ModBoatItem(false, ModBoatEntityUsual.Type.USUAL, properties),
+            new Item.Properties());
+
+    public static final DeferredItem<Item> USUAL_CHEST_BOAT = ITEMS.registerItem("usual_chest_boat",
+            properties -> new ModBoatItem(true, ModBoatEntityUsual.Type.USUAL, properties),
+            new Item.Properties());
 }

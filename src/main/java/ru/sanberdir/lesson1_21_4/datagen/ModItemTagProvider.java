@@ -52,6 +52,10 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(L1214Blocks.USUAL_PRESSURE_PLATE.get().asItem());
         tag(ItemTags.WOODEN_SLABS)
                 .add(L1214Blocks.USUAL_SLAB.get().asItem());
+        tag(ItemTags.BOATS)
+                .add(L1214Items.USUAL_BOAT.get());
+        tag(ItemTags.CHEST_BOATS)
+                .add(L1214Items.USUAL_CHEST_BOAT.get());
         tag(ItemTags.HANGING_SIGNS)
                 .add(L1214Blocks.USUAL_HANGING_SIGN.get().asItem());
         tag(ItemTags.WOODEN_STAIRS)

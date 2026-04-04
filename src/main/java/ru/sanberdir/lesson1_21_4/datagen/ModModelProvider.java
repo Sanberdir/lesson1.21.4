@@ -24,8 +24,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(L1214Items.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN2.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.USUAL_BOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.USUAL_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Blocks.USUAL_SAPLING.get().asItem(), ModelTemplates.FLAT_ITEM);
-
 
         /* BLOCKS */
         blockModels.createTrivialCube(L1214Blocks.BISMUTH_BLOCK.get());

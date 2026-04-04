@@ -64,5 +64,8 @@
   "item.lesson1_21_4.usual_fence_gate": "Обычная калитка",
   "item.lesson1_21_4.usual_wall": "Обычная стена",
   "item.lesson1_21_4.usual_door": "Обычная дверь",
-  "item.lesson1_21_4.usual_trapdoor": "Обычный люк"
+  "item.lesson1_21_4.usual_trapdoor": "Обычный люк",
+  "item.lesson1_21_4.usual_boat": "Обычная лодка",
+  "item.lesson1_21_4.usual_chest_boat": "Обычная грузовая лодка",
+  "entity.lesson1_21_4.mod_chest_boat_usual": "Обычная грузовая лодка"
 }

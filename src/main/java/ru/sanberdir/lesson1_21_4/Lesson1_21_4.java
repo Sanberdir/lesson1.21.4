@@ -3,6 +3,7 @@ package ru.sanberdir.lesson1_21_4;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.IEventBus;
@@ -21,6 +22,8 @@ import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
 import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
+import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
+import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
@@ -38,11 +41,12 @@ public class Lesson1_21_4 {
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-
+        ModEntitiesItem.ENTITIES.register(modEventBus);  // ← добавь эту строку
         modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_SIGN.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_HANGING_SIGN.get(), HangingSignRenderer::new);
         });
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -65,7 +69,8 @@ public class Lesson1_21_4 {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             Sheets.addWoodType(ModWoodTypes.USUAL);
-
+            EntityRenderers.register(ModEntitiesItem.MOD_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntitiesItem.MOD_CHEST_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, true));
 
         }
     }
