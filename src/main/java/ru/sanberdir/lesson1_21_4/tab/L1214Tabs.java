@@ -27,6 +27,7 @@ public class L1214Tabs {
                         output.accept(L1214Items.RAW_BISMUTH);
                         output.accept(L1214Items.USUAL_BOAT);
                         output.accept(L1214Items.USUAL_CHEST_BOAT);
+                        output.accept(L1214Items.GREEN_WHEAT);
 
                         // блоки
                         output.accept(L1214Blocks.MY_BETTER_BLOCK);

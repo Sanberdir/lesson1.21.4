@@ -17,6 +17,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.blocks.custom.*;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
+import ru.sanberdir.lesson1_21_4.blocks.custom.ModCrops;
 import ru.sanberdir.lesson1_21_4.worldgen.tree.ModTreeGrowers;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
@@ -72,6 +73,12 @@ public class L1214Blocks {
                     return 30;
                 }
             });
+    public static final DeferredBlock<Block> GREEN_WHEAT = BLOCKS.registerBlock("green_wheat",
+            (properties) -> new ModCrops (
+                    properties.mapColor((state) -> (Integer)state
+                                    .getValue(CropBlock.AGE) >= 6 ? MapColor.COLOR_YELLOW : MapColor.PLANT)
+                            .noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+
     public static final DeferredBlock<Block> USUAL_SIGN = BLOCKS.registerBlock("usual_sign",
             (properties) -> new ModStandingSignBlock(
                     properties.noCollission().strength(1.0F).ignitedByLava().sound(SoundType.WOOD),

@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -62,7 +64,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(L1214Blocks.USUAL_WALL_HANGING_SIGN.get(),
                 block -> createSingleItemTable(L1214Blocks.USUAL_HANGING_SIGN.get()));
-
+        add(L1214Blocks.GREEN_WHEAT.get(),
+                block -> createCropDrops(
+                        L1214Blocks.GREEN_WHEAT.get(),
+                        Items.WHEAT,                    // урожай на age=7
+                        L1214Items.GREEN_WHEAT.get(),   // семена при любом age
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(L1214Blocks.GREEN_WHEAT.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                        .hasProperty(CropBlock.AGE, 7))
+                ));
         dropSelf(L1214Blocks.USUAL_FENCE.get());
         dropSelf(L1214Blocks.USUAL_FENCE_GATE.get());
         dropSelf(L1214Blocks.USUAL_WALL.get());

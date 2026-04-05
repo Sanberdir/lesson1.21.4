@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "lesson1_21_4:block/green_wheat_stage2"
+  }
+}

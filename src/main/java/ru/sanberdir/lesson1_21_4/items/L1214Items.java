@@ -42,7 +42,10 @@ public class L1214Items {
                     L1214Blocks.USUAL_HANGING_SIGN.get(),
                     L1214Blocks.USUAL_WALL_HANGING_SIGN.get(),
                     properties));
-
+    public static final DeferredItem<Item> GREEN_WHEAT = ITEMS.registerItem("green_wheat",
+            properties -> new BlockItem(
+                    L1214Blocks.GREEN_WHEAT.get(),
+                    properties));
     public static final DeferredItem<Item> USUAL_BOAT = ITEMS.registerItem("usual_boat",
             properties -> new ModBoatItem(false, ModBoatEntityUsual.Type.USUAL, properties),
             new Item.Properties().stacksTo(1));

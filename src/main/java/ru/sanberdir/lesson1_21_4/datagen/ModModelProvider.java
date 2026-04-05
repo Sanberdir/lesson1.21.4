@@ -3,21 +3,32 @@ package ru.sanberdir.lesson1_21_4.datagen;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TexturedModel;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.CropBlock;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
         super(output, Lesson1_21_4.MODID);
     }
-
+    private static final ModelTemplate CROP_CUTOUT = new ModelTemplate(
+            Optional.of(ResourceLocation.withDefaultNamespace("block/crop")),
+            Optional.empty(),
+            TextureSlot.CROP
+    ) {
+        @Override
+        public ResourceLocation create(ResourceLocation modelLocation, TextureMapping textureMapping, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+            // переопределяем чтобы добавить render_type
+            return super.create(modelLocation, textureMapping, modelOutput);
+        }
+    };
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(L1214Items.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
@@ -36,7 +47,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(L1214Blocks.BISMUTH_NETHER_ORE.get());
         blockModels.createTrivialCube(L1214Blocks.MY_BETTER_BLOCK2.get());
         blockModels.createTrivialCube(L1214Blocks.MY_BETTER_BLOCK.get());
-
+        blockModels.createCropBlock(L1214Blocks.GREEN_WHEAT.get(), CropBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
 
         blockModels.family(L1214Blocks.USUAL_PLANKS.get())
                 .fence(L1214Blocks.USUAL_FENCE.get())
