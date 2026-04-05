@@ -1,13 +1,18 @@
 package ru.sanberdir.lesson1_21_4.items.entity.client;
 
 import com.google.common.collect.ImmutableMap;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.BoatModel;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.AbstractBoatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.BoatRenderState;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.vehicle.AbstractBoat;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
@@ -22,13 +27,16 @@ public class ModUsualBoatRenderer extends AbstractBoatRenderer {
     private final Map<ModBoatEntityUsual.Type, ResourceLocation> textures;
     private final Map<ModBoatEntityUsual.Type, EntityModel<BoatRenderState>> models;
     private final boolean chestBoat;
-
+    private final Model waterPatchModel;
     private ModBoatEntityUsual.Type currentType = ModBoatEntityUsual.Type.USUAL;
 
     public ModUsualBoatRenderer(EntityRendererProvider.Context context, boolean chestBoat) {
         super(context);
         this.chestBoat = chestBoat;
-
+        this.waterPatchModel = new Model.Simple(
+                context.bakeLayer(ModelLayers.BOAT_WATER_PATCH),
+                (p) -> RenderType.waterMask()
+        );
         this.textures = Stream.of(ModBoatEntityUsual.Type.values())
                 .collect(ImmutableMap.toImmutableMap(
                         type -> type,
@@ -52,7 +60,20 @@ public class ModUsualBoatRenderer extends AbstractBoatRenderer {
                         }
                 ));
     }
-
+    @Override
+    protected void renderTypeAdditions(BoatRenderState state, PoseStack poseStack,
+                                       MultiBufferSource bufferSource, int packedLight) {
+        if (!state.isUnderWater) {
+            ResourceLocation texture = textures.getOrDefault(currentType,
+                    textures.values().iterator().next());
+            this.waterPatchModel.renderToBuffer(
+                    poseStack,
+                    bufferSource.getBuffer(this.waterPatchModel.renderType(texture)),
+                    packedLight,
+                    OverlayTexture.NO_OVERLAY
+            );
+        }
+    }
     @Override
     public void extractRenderState(AbstractBoat boat, BoatRenderState state, float partialTick) {
         super.extractRenderState(boat, state, partialTick);
