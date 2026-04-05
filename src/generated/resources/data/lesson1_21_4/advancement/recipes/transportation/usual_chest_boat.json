@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lesson1_21_4:usual_chest_boat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_usual_boat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lesson1_21_4:usual_boat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_usual_boat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lesson1_21_4:usual_chest_boat"
+    ]
+  }
+}

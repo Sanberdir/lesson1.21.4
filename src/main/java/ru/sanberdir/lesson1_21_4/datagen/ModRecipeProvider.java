@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
@@ -28,6 +29,23 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("BBB")
                 .define('B', L1214Items.BISMUTH.get())
                 .unlockedBy(getHasName(L1214Items.BISMUTH.get()), has(L1214Items.BISMUTH.get()))
+                .save(output);
+
+
+        shaped(RecipeCategory.TRANSPORTATION, L1214Items.USUAL_BOAT.get())
+                .pattern("P P")
+                .pattern("PPP")
+                .define('P', L1214Blocks.USUAL_PLANKS.get())
+                .unlockedBy("has_usual_planks", has(L1214Blocks.USUAL_PLANKS.get()))
+                .save(output);
+
+// Лодка с сундуком
+        shaped(RecipeCategory.TRANSPORTATION, L1214Items.USUAL_CHEST_BOAT.get())
+                .pattern("C")
+                .pattern("B")
+                .define('C', Blocks.CHEST)
+                .define('B', L1214Items.USUAL_BOAT.get())
+                .unlockedBy("has_usual_boat", has(L1214Items.USUAL_BOAT.get()))
                 .save(output);
 
         stairBuilder(L1214Blocks.USUAL_STAIRS.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS)).group("usual")

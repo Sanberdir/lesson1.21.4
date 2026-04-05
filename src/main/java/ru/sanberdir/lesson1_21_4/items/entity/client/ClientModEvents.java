@@ -8,13 +8,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.items.entity.ModBoatEntityUsual;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
-import static ru.sanberdir.lesson1_21_4.Lesson1_21_4.MODID;
-
-@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = Lesson1_21_4.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientModEvents {
 
     @SubscribeEvent

@@ -5,7 +5,6 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -41,7 +40,7 @@ public class Lesson1_21_4 {
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        ModEntitiesItem.ENTITIES.register(modEventBus);  // ← добавь эту строку
+        ModEntitiesItem.ITEM_ENTITIES.register(modEventBus);  // ← добавь эту строку
         modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_SIGN.get(), SignRenderer::new);
             event.registerBlockEntityRenderer(ModBlockEntities.USUAL_HANGING_SIGN.get(), HangingSignRenderer::new);

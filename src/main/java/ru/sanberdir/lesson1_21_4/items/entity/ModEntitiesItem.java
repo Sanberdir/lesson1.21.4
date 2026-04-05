@@ -10,11 +10,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 
 public class ModEntitiesItem {
-    public static final DeferredRegister<EntityType<?>> ENTITIES =
+    public static final DeferredRegister<EntityType<?>> ITEM_ENTITIES =
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, Lesson1_21_4.MODID);
 
     public static final DeferredHolder<EntityType<?>, EntityType<ModBoatEntityUsual>> MOD_BOAT_USUAL =
-            ENTITIES.register("mod_boat_usual", () ->
+            ITEM_ENTITIES.register("mod_boat_usual", () ->
                     EntityType.Builder.<ModBoatEntityUsual>of(ModBoatEntityUsual::new, MobCategory.MISC)
                             .sized(1.375f, 0.5625f)
                             .build(ResourceKey.create(
@@ -23,7 +23,7 @@ public class ModEntitiesItem {
                             )));
 
     public static final DeferredHolder<EntityType<?>, EntityType<ModChestBoatEntityUsual>> MOD_CHEST_BOAT_USUAL =
-            ENTITIES.register("mod_chest_boat_usual", () ->
+            ITEM_ENTITIES.register("mod_chest_boat_usual", () ->
                     EntityType.Builder.<ModChestBoatEntityUsual>of(ModChestBoatEntityUsual::new, MobCategory.MISC)
                             .sized(1.375f, 0.5625f)
                             .build(ResourceKey.create(

@@ -45,9 +45,9 @@ public class L1214Items {
 
     public static final DeferredItem<Item> USUAL_BOAT = ITEMS.registerItem("usual_boat",
             properties -> new ModBoatItem(false, ModBoatEntityUsual.Type.USUAL, properties),
-            new Item.Properties());
+            new Item.Properties().stacksTo(1));
 
     public static final DeferredItem<Item> USUAL_CHEST_BOAT = ITEMS.registerItem("usual_chest_boat",
             properties -> new ModBoatItem(true, ModBoatEntityUsual.Type.USUAL, properties),
-            new Item.Properties());
+            new Item.Properties().stacksTo(1));
 }
