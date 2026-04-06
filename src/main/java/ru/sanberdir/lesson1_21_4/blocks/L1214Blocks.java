@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.blocks.custom.*;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModCrops;
+import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 import ru.sanberdir.lesson1_21_4.worldgen.tree.ModTreeGrowers;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
@@ -35,7 +36,7 @@ public class L1214Blocks {
 
     public static final DeferredBlock<Block> USUAL_PLANKS = registerBlock("usual_planks",
             (properties) -> new Block(properties.mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS)
-                    .strength(1.0F, 3.0F).sound(SoundType.BAMBOO_WOOD).ignitedByLava()));
+                    .strength(1.0F, 3.0F).sound(ModSounds.MAGIC_BLOCK_SOUNDS).ignitedByLava()));
 
     // Брёвна
     public static final DeferredBlock<Block> USUAL_LOG = registerBlock("usual_log",

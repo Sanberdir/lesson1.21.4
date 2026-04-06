@@ -23,6 +23,7 @@ import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
+import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
 
@@ -37,6 +38,7 @@ public class Lesson1_21_4 {
         L1214Blocks.BLOCKS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
+        ModSounds.SOUND_EVENTS.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
