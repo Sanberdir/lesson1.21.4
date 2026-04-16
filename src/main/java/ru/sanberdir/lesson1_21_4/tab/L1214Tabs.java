@@ -28,6 +28,7 @@ public class L1214Tabs {
                         output.accept(L1214Items.USUAL_BOAT);
                         output.accept(L1214Items.USUAL_CHEST_BOAT);
                         output.accept(L1214Items.GREEN_WHEAT);
+                        output.accept(L1214Items.BAR_BRAWL_MUSIC_DISC);
 
                         // блоки
                         output.accept(L1214Blocks.MY_BETTER_BLOCK);

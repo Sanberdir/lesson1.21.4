@@ -28,5 +28,13 @@
     "sounds": [
       "lesson1_21_4:magic_block_fall"
     ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "lesson1_21_4:bar_brawl",
+        "stream": true
+      }
+    ]
   }
 }

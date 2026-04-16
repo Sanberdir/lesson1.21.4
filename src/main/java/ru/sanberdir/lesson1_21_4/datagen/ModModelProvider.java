@@ -32,6 +32,7 @@ public class ModModelProvider extends ModelProvider {
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(L1214Items.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BAR_BRAWL_MUSIC_DISC.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN2.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.NUGGET_OBSIDIAN.get(), ModelTemplates.FLAT_ITEM);

@@ -12,6 +12,7 @@ import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.custom.FuelItem;
 import ru.sanberdir.lesson1_21_4.items.custom.ModBoatItem;
 import ru.sanberdir.lesson1_21_4.items.entity.ModBoatEntityUsual;
+import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 
 public class L1214Items {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Lesson1_21_4.MODID);
@@ -53,4 +54,7 @@ public class L1214Items {
     public static final DeferredItem<Item> USUAL_CHEST_BOAT = ITEMS.registerItem("usual_chest_boat",
             properties -> new ModBoatItem(true, ModBoatEntityUsual.Type.USUAL, properties),
             new Item.Properties().stacksTo(1));
+
+    public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
+            properties -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
 }
