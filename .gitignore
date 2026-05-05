@@ -3,5 +3,6 @@
 /.idea/
 /build/
 /run/
+/out/
 /build/classes/java/main/
 /src/generated/resources/.cache/
