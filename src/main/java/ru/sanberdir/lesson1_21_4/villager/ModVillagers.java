@@ -14,6 +14,7 @@ import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 public class ModVillagers {
     public static final DeferredRegister<PoiType> POI_TYPES =
             DeferredRegister.create(BuiltInRegistries.POINT_OF_INTEREST_TYPE, Lesson1_21_4.MODID);
+
     public static final DeferredRegister<VillagerProfession> VILLAGER_PROFESSIONS =
             DeferredRegister.create(BuiltInRegistries.VILLAGER_PROFESSION, Lesson1_21_4.MODID);
 
