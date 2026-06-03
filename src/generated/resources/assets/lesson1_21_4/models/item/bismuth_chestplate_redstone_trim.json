@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lesson1_21_4:item/bismuth_chestplate",
+    "layer1": "minecraft:trims/items/chestplate_trim_redstone"
+  }
+}

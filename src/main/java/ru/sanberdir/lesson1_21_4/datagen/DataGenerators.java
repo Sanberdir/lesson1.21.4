@@ -16,11 +16,14 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
+import ru.sanberdir.lesson1_21_4.trim.ModTrimMaterials;
+import ru.sanberdir.lesson1_21_4.trim.ModTrimPatterns;
 import ru.sanberdir.lesson1_21_4.worldgen.ModBiomeModifiers;
 import ru.sanberdir.lesson1_21_4.worldgen.ModConfiguredFeatures;
 import ru.sanberdir.lesson1_21_4.worldgen.ModPlacedFeatures;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
@@ -31,6 +34,8 @@ public class DataGenerators {
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(Registries.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+            .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
+            .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 
     @SubscribeEvent
@@ -55,7 +60,6 @@ public class DataGenerators {
 
         var itemTags = new ModItemTagProvider(output,lookupProvider,blockTags.contentsGetter());
         generator.addProvider(true, itemTags);
-
         generator.addProvider(true, new ModModelProvider(output));
         generator.addProvider(true, new ModRecipeProvider.Runner(output, lookupProvider) {
             @Override

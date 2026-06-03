@@ -70,5 +70,25 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
         tag(ModTags.Items.BISMUTH_REPAIRABLE)
                 .add(L1214Items.BISMUTH.get());
+
+        tag(ItemTags.SWORDS)
+                .add(L1214Items.BISMUTH_SWORD.get());
+        tag(ItemTags.PICKAXES)
+                .add(L1214Items.BISMUTH_PICKAXE.get());
+        tag(ItemTags.SHOVELS)
+                .add(L1214Items.BISMUTH_SHOVEL.get());
+        tag(ItemTags.AXES)
+                .add(L1214Items.BISMUTH_AXE.get());
+        tag(ItemTags.HOES)
+                .add(L1214Items.BISMUTH_HOE.get());
+
+
+        this.tag(ItemTags.TRIM_MATERIALS)
+                .add(L1214Items.BISMUTH.get());
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(L1214Items.BISMUTH_HELMET.get())
+                .add(L1214Items.BISMUTH_CHESTPLATE.get())
+                .add(L1214Items.BISMUTH_LEGGINGS.get())
+                .add(L1214Items.BISMUTH_BOOTS.get());
     }
 }

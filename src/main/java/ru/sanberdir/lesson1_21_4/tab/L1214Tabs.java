@@ -34,6 +34,10 @@ public class L1214Tabs {
                         output.accept(L1214Items.BISMUTH_SWORD);
                         output.accept(L1214Items.BISMUTH_AXE);
                         output.accept(L1214Items.BISMUTH_PICKAXE);
+                        output.accept(L1214Items.BISMUTH_CHESTPLATE);
+                        output.accept(L1214Items.BISMUTH_HELMET);
+                        output.accept(L1214Items.BISMUTH_BOOTS);
+                        output.accept(L1214Items.BISMUTH_LEGGINGS);
 
                         // блоки
                         output.accept(L1214Blocks.MY_BETTER_BLOCK);

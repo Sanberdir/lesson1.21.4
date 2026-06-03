@@ -2,11 +2,13 @@ package ru.sanberdir.lesson1_21_4.items;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.custom.FuelItem;
+import ru.sanberdir.lesson1_21_4.items.custom.ModArmorItem;
 import ru.sanberdir.lesson1_21_4.items.custom.ModBoatItem;
 import ru.sanberdir.lesson1_21_4.items.entity.ModBoatEntityUsual;
 import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
@@ -65,4 +67,13 @@ public class L1214Items {
             properties -> new AxeItem(ModToolTiers.BISMUTH, 6.0F, -3.2f, properties));
     public static final DeferredItem<HoeItem> BISMUTH_HOE = ITEMS.registerItem("bismuth_hoe",
             properties -> new HoeItem(ModToolTiers.BISMUTH, 0F, -3.0f, properties));
+
+    public static final DeferredItem<ArmorItem> BISMUTH_HELMET = ITEMS.registerItem("bismuth_helmet",
+            properties -> new ModArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.HELMET, properties));
+    public static final DeferredItem<ArmorItem> BISMUTH_CHESTPLATE = ITEMS.registerItem("bismuth_chestplate",
+            properties -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.CHESTPLATE, properties));
+    public static final DeferredItem<ArmorItem> BISMUTH_LEGGINGS = ITEMS.registerItem("bismuth_leggings",
+            properties -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.LEGGINGS, properties));
+    public static final DeferredItem<ArmorItem> BISMUTH_BOOTS = ITEMS.registerItem("bismuth_boots",
+            properties -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.BOOTS, properties));
 }
