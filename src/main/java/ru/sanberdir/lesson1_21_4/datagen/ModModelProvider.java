@@ -40,6 +40,12 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(L1214Items.USUAL_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Blocks.USUAL_SAPLING.get().asItem(), ModelTemplates.FLAT_ITEM);
 
+        itemModels.generateFlatItem(L1214Items.BISMUTH_SWORD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BISMUTH_HOE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BISMUTH_SHOVEL.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BISMUTH_AXE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BISMUTH_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
+
         /* BLOCKS */
         blockModels.createTrivialCube(L1214Blocks.BISMUTH_BLOCK.get());
         blockModels.createTrivialCube(L1214Blocks.BISMUTH_ORE.get());

@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Block;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
+import ru.sanberdir.lesson1_21_4.tags.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -66,5 +67,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.RESIN_BRICKS)
                 .add(Items.RESIN_BLOCK)
                 .add(Items.RESIN_BRICK);
+
+        tag(ModTags.Items.BISMUTH_REPAIRABLE)
+                .add(L1214Items.BISMUTH.get());
     }
 }

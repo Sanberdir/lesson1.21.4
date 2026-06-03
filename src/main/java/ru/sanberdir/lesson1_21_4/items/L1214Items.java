@@ -1,10 +1,7 @@
 package ru.sanberdir.lesson1_21_4.items;
 
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.*;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
@@ -57,4 +54,15 @@ public class L1214Items {
 
     public static final DeferredItem<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.registerItem("bar_brawl_music_disc",
             properties -> new Item(properties.jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
+
+    public static final DeferredItem<SwordItem> BISMUTH_SWORD = ITEMS.registerItem("bismuth_sword",
+            properties -> new SwordItem(ModToolTiers.BISMUTH, 5.0F, -2.4f, properties));
+    public static final DeferredItem<PickaxeItem> BISMUTH_PICKAXE = ITEMS.registerItem("bismuth_pickaxe",
+            properties -> new PickaxeItem(ModToolTiers.BISMUTH, 1.0F, -2.8f, properties));
+    public static final DeferredItem<ShovelItem> BISMUTH_SHOVEL = ITEMS.registerItem("bismuth_shovel",
+            properties -> new ShovelItem(ModToolTiers.BISMUTH, 1.5F, -3.0f, properties));
+    public static final DeferredItem<AxeItem> BISMUTH_AXE = ITEMS.registerItem("bismuth_axe",
+            properties -> new AxeItem(ModToolTiers.BISMUTH, 6.0F, -3.2f, properties));
+    public static final DeferredItem<HoeItem> BISMUTH_HOE = ITEMS.registerItem("bismuth_hoe",
+            properties -> new HoeItem(ModToolTiers.BISMUTH, 0F, -3.0f, properties));
 }

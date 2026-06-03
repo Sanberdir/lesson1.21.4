@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
+import ru.sanberdir.lesson1_21_4.tags.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -95,5 +96,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(L1214Blocks.BISMUTH_DEEPSLATE_ORE.get())
                 .add(L1214Blocks.MY_BETTER_BLOCK2.get());
+
+        tag(ModTags.Blocks.INCORRECT_FOR_BISMUTH_TOOL)
+                .addTag(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .remove(L1214Blocks.BISMUTH_DEEPSLATE_ORE.get());
     }
 }

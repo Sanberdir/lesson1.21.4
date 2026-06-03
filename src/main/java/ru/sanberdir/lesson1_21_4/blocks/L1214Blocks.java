@@ -137,14 +137,14 @@ public class L1214Blocks {
     // Regular bismuth ore
     public static final DeferredBlock<Block> BISMUTH_ORE = registerBlock("bismuth_ore",
             (properties) -> new DropExperienceBlock(UniformInt.of(2, 4),
-                    properties.strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+                    properties.strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> BISMUTH_DEEPSLATE_ORE = registerBlock("bismuth_deepslate_ore",
             (properties) -> new DropExperienceBlock(UniformInt.of(3, 6),
-                    properties.strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+                    properties.strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> BISMUTH_END_ORE = registerBlock("bismuth_end_ore",
             (properties) -> new DropExperienceBlock(UniformInt.of(5, 9),
-                    properties.strength(7f).requiresCorrectToolForDrops()));
+                    properties.strength(7f).requiresCorrectToolForDrops().requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> BISMUTH_NETHER_ORE = registerBlock("bismuth_nether_ore",
             (properties) -> new DropExperienceBlock(UniformInt.of(1, 5),
                     properties.strength(3f).requiresCorrectToolForDrops()));
