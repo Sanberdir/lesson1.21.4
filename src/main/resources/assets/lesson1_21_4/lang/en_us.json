@@ -19,6 +19,10 @@
   "block.lesson1_21_4.green_wheat": "Green Wheat",
   "item.lesson1_21_4.green_wheat": "Green Wheat",
 
+  "trim_pattern.lesson1_21_4.kaupen": "Kaupen Armor Trim",
+  "trim_material.lesson1_21_4.bismuth": "Bismuth Material",
+  "item.lesson1_21_4.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
+
   "item.lesson1_21_4.bar_brawl_music_disc": "Bar Brawl Music Disc",
   "item.lesson1_21_4.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
 

@@ -17,6 +17,7 @@ public class ModTrimPatterns {
             ResourceLocation.fromNamespaceAndPath(Lesson1_21_4.MODID, "kaupen"));
 
     public static void bootstrap(BootstrapContext<TrimPattern> context) {
+        register(context, L1214Items.KAUPEN_SMITHING_TEMPLATE, KAUPEN);
     }
 
     private static void register(BootstrapContext<TrimPattern> context, DeferredItem<Item> item, ResourceKey<TrimPattern> key) {

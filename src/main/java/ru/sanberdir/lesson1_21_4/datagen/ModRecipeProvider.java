@@ -1,13 +1,16 @@
 package ru.sanberdir.lesson1_21_4.datagen;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
+import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 
@@ -89,7 +92,8 @@ public class ModRecipeProvider extends RecipeProvider {
         signBuilder(L1214Blocks.USUAL_SIGN.get(), Ingredient.of(L1214Blocks.USUAL_PLANKS.get()))
                 .unlockedBy("has_planks", has(L1214Blocks.USUAL_PLANKS.get()))
                 .save(output);
-
+        trimSmithing(L1214Items.KAUPEN_SMITHING_TEMPLATE.get(), ResourceKey.create(Registries.RECIPE,
+                ResourceLocation.fromNamespaceAndPath(Lesson1_21_4.MODID, "kaupen")));
 // Висячая табличка
         hangingSign(L1214Blocks.USUAL_HANGING_SIGN.get(), L1214Blocks.STRIPPED_USUAL_LOG.get());
 

@@ -38,6 +38,7 @@ public class L1214Tabs {
                         output.accept(L1214Items.BISMUTH_HELMET);
                         output.accept(L1214Items.BISMUTH_BOOTS);
                         output.accept(L1214Items.BISMUTH_LEGGINGS);
+                        output.accept(L1214Items.KAUPEN_SMITHING_TEMPLATE);
 
                         // блоки
                         output.accept(L1214Blocks.MY_BETTER_BLOCK);

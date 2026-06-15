@@ -12,6 +12,13 @@
       {
         "model": {
           "type": "minecraft:model",
+          "model": "lesson1_21_4:item/bismuth_chestplate_bismuth_trim"
+        },
+        "when": "lesson1_21_4:bismuth"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
           "model": "lesson1_21_4:item/bismuth_chestplate_iron_trim"
         },
         "when": "minecraft:iron"

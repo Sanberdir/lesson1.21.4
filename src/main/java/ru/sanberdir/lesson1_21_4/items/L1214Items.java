@@ -76,4 +76,7 @@ public class L1214Items {
             properties -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.LEGGINGS, properties));
     public static final DeferredItem<ArmorItem> BISMUTH_BOOTS = ITEMS.registerItem("bismuth_boots",
             properties -> new ArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL, ArmorType.BOOTS, properties));
+
+    public static final DeferredItem<Item> KAUPEN_SMITHING_TEMPLATE = ITEMS.registerItem("kaupen_armor_trim_smithing_template",
+            SmithingTemplateItem::createArmorTrimTemplate);
 }
