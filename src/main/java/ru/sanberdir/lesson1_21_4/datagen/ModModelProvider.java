@@ -47,6 +47,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(L1214Items.BISMUTH_AXE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.BISMUTH_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(L1214Items.KAUPEN_SMITHING_TEMPLATE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(L1214Items.BISMUTH_HORSE_ARMOR.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateTrimmableItem(L1214Items.BISMUTH_HELMET.get(), ModArmorMaterials.BISMUTH, "helmet", false);
         itemModels.generateTrimmableItem(L1214Items.BISMUTH_CHESTPLATE.get(), ModArmorMaterials.BISMUTH, "chestplate", false);
