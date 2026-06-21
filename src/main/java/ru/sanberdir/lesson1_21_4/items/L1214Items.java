@@ -83,4 +83,7 @@ public class L1214Items {
     public static final DeferredItem<Item> BISMUTH_HORSE_ARMOR = ITEMS.registerItem("bismuth_horse_armor",
             (properties) -> new AnimalArmorItem(ModArmorMaterials.BISMUTH_ARMOR_MATERIAL,
                     AnimalArmorItem.BodyType.EQUESTRIAN, properties.stacksTo(1)));
+
+    public static final DeferredItem<Item> KAUPEN_BOW = ITEMS.registerItem("kaupen_bow",
+            (properties) -> new BowItem(properties.durability(500)));
 }
