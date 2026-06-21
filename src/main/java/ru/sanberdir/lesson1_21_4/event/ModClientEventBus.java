@@ -11,7 +11,7 @@ import ru.sanberdir.lesson1_21_4.items.L1214Items;
 public class ModClientEventBus {
     @SubscribeEvent
     public static void onComputeFovModifierEvent(ComputeFovModifierEvent event) {
-        if(event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() == L1214Items.KAUPEN_BOW.get()) {
+        if (event.getPlayer().isUsingItem() && event.getPlayer().getUseItem().getItem() == L1214Items.KAUPEN_BOW.get()) {
             float fovModifier = 1f;
             int ticksUsingItem = event.getPlayer().getTicksUsingItem();
             float deltaTicks = (float)ticksUsingItem / 20f;
