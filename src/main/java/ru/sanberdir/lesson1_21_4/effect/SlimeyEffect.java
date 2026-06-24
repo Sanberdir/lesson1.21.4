@@ -1,0 +1,40 @@
+package ru.sanberdir.lesson1_21_4.effect;
+
+import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.Vec3;
+
+// Climbing Effect by SameDifferent: https://github.com/samedifferent/TrickOrTreat/blob/master/LICENSE
+// Distributed under MIT
+public class SlimeyEffect extends MobEffect {
+    public SlimeyEffect(MobEffectCategory category, int color) {
+        super(category, color);
+    }
+
+    @Override
+    public boolean applyEffectTick(ServerLevel level, LivingEntity livingEntity, int amplifier) {
+        if (livingEntity.horizontalCollision) {
+            Vec3 initialVec = livingEntity.getDeltaMovement();
+            livingEntity.setDeltaMovement(initialVec.x, 0.2D, initialVec.z);
+            livingEntity.fallDistance = 0;
+
+            // Синхронизация с клиентом для игроков
+            if (livingEntity instanceof ServerPlayer player) {
+                player.connection.send(new ClientboundSetEntityMotionPacket(player));
+            }
+
+            return true;
+        }
+
+        return super.applyEffectTick(level, livingEntity, amplifier);
+    }
+
+    @Override
+    public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
+        return true;
+    }
+}

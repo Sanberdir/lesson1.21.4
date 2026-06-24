@@ -42,10 +42,14 @@
 
   "block.lesson1_21_4.green_wheat": "Зелёная пшеница",
   "item.lesson1_21_4.green_wheat": "Зелёная пшеница",
+  "effect.lesson1_21_4.slimey": "Липкость",
 
   "item.lesson1_21_4.nugget_obsidian": "Кусочек обсидиана",
   "item.lesson1_21_4.nugget_obsidian2": "Кусочек обсидиана 2",
 
+  "item.minecraft.potion.effect.slimey_potion": "Зелье липкости",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Взрывное зелье липкости",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Туманное зелье липкости",
   "item.lesson1_21_4.bismuth_helmet": "Шлем из висмута",
   "item.lesson1_21_4.bismuth_chestplate": "Нагрудник из висмута",
   "item.lesson1_21_4.bismuth_leggings": "Поножи из висмута",

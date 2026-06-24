@@ -46,6 +46,11 @@
   "block.lesson1_21_4.usual_door": "Usual Door",
   "block.lesson1_21_4.usual_trapdoor": "Usual Trapdoor",
 
+  "effect.lesson1_21_4.slimey": "Slimey",
+
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
   "item.lesson1_21_4.bismuth_helmet": "Bismuth Helmet",
   "item.lesson1_21_4.bismuth_chestplate": "Bismuth Chestplate",
   "item.lesson1_21_4.bismuth_leggings": "Bismuth Leggings",
