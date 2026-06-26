@@ -48,6 +48,16 @@
 
   "effect.lesson1_21_4.slimey": "Slimey",
 
+  "painting.lesson1_21_4.world.title": "World",
+  "painting.lesson1_21_4.world.author": "NanoAttack",
+
+  "painting.lesson1_21_4.shrimp.title": "Shrimp",
+  "painting.lesson1_21_4.shrimp.author": "NanoAttack",
+
+  "painting.lesson1_21_4.saw_them.title": "Saw Them",
+  "painting.lesson1_21_4.saw_them.author": "NanoAttack",
+
+
   "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
   "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
