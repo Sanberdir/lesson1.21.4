@@ -1,0 +1,14 @@
+﻿{
+  "type": "minecraft:jigsaw",
+  "start_pool": "lesson1_21_4:my_home/start_pool",
+  "size": 7,
+  "max_distance_from_center": 80,
+  "biomes": "#lesson1_21_4:has_structure/my_home",
+  "step": "surface_structures",
+  "start_height": {
+    "absolute": 0
+  },
+  "project_start_to_heightmap": "WORLD_SURFACE_WG",
+  "use_expansion_hack": false,
+  "spawn_overrides": {}
+}
