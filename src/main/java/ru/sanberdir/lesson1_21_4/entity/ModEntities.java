@@ -6,7 +6,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.entity.custom.GeckoEntity;
@@ -23,5 +22,4 @@ public class ModEntities {
                             Registries.ENTITY_TYPE,
                             ResourceLocation.fromNamespaceAndPath(Lesson1_21_4.MODID, "gecko")
                     )));
-
 }

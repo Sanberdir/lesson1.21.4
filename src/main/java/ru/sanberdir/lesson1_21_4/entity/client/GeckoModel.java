@@ -8,7 +8,6 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
-import ru.sanberdir.lesson1_21_4.entity.client.GeckoAnimations;
 
 public class GeckoModel extends EntityModel<GeckoRenderState> {
     public static final ModelLayerLocation LAYER_LOCATION =

@@ -1,0 +1,13 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:swamp",
+    "minecraft:savanna"
+  ],
+  "spawners": {
+    "type": "lesson1_21_4:gecko",
+    "maxCount": 7,
+    "minCount": 1,
+    "weight": 20
+  }
+}

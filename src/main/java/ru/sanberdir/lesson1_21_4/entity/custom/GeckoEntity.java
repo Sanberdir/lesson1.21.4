@@ -6,12 +6,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -49,15 +47,15 @@ public class GeckoEntity extends Animal {
         this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25));
 
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0));
-        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes()
-                .add(Attributes.MAX_HEALTH, 10d)
+                .add(Attributes.MAX_HEALTH, 10D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D)
-                .add(Attributes.TEMPT_RANGE, 16d)
+                .add(Attributes.TEMPT_RANGE, 16D)
                 .add(Attributes.FOLLOW_RANGE, 24D);
     }
 
@@ -152,12 +150,10 @@ public class GeckoEntity extends Animal {
         return SoundEvents.BAT_DEATH;
     }
 
-    /* BOSS BAR */
     @Override
     public void startSeenByPlayer(ServerPlayer serverPlayer) {
         super.startSeenByPlayer(serverPlayer);
     }
-
     @Override
     public void stopSeenByPlayer(ServerPlayer serverPlayer) {
         super.stopSeenByPlayer(serverPlayer);
