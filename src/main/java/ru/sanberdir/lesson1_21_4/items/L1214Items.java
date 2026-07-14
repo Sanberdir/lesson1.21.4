@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
+import ru.sanberdir.lesson1_21_4.entity.ModEntities;
 import ru.sanberdir.lesson1_21_4.items.custom.FuelItem;
 import ru.sanberdir.lesson1_21_4.items.custom.ModArmorItem;
 import ru.sanberdir.lesson1_21_4.items.custom.ModBoatItem;
@@ -26,7 +27,8 @@ public class L1214Items {
     public static final DeferredItem<Item> RAW_BISMUTH = ITEMS.registerItem("raw_bismuth",
             properties -> new Item(properties),
             new Item.Properties());
-
+    public static final DeferredItem<Item> GECKO_SPAWN_EGG = ITEMS.registerItem("gecko_spawn_egg",
+            (properties) -> new SpawnEggItem(ModEntities.GECKO.get(), properties));
     public static final DeferredItem<Item> NUGGET_OBSIDIAN2 = ITEMS.registerItem("nugget_obsidian2",
             properties -> new FuelItem(properties,1200),
             new Item.Properties());

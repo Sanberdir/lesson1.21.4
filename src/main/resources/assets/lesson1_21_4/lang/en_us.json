@@ -72,6 +72,7 @@
   "item.lesson1_21_4.bismuth_hoe": "Bismuth Hoe",
   "item.lesson1_21_4.raw_bismuth": "Raw Bismuth",
   "item.lesson1_21_4.bismuth": "Bismuth",
+  "item.lesson1_21_4.gecko_spawn_egg": "Gecko Spawn Egg",
   "item.lesson1_21_4.nugget_obsidian": "Nugget Obsidian",
   "item.lesson1_21_4.nugget_obsidian2": "Nugget Obsidian 2",
   "item.lesson1_21_4.my_better_block": "Block 1",
@@ -102,5 +103,6 @@
   "item.lesson1_21_4.usual_trapdoor": "Usual Trapdoor",
   "item.lesson1_21_4.usual_boat": "Usual Boat",
   "item.lesson1_21_4.usual_chest_boat": "Usual Chest Boat",
-  "entity.lesson1_21_4.mod_chest_boat_usual": "Usual Chest Boa"
+  "entity.lesson1_21_4.mod_chest_boat_usual": "Usual Chest Boa",
+  "entity.lesson1_21_4.gecko": "Gecko"
 }

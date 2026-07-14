@@ -21,6 +21,8 @@ public class L1214Tabs {
                     .icon(() -> new ItemStack(L1214Items.NUGGET_OBSIDIAN.get()))
                     .displayItems((params, output) -> {
                         // предметы
+
+                        output.accept(L1214Items.GECKO_SPAWN_EGG);
                         output.accept(L1214Items.NUGGET_OBSIDIAN);
                         output.accept(L1214Items.NUGGET_OBSIDIAN2);
                         output.accept(L1214Items.BISMUTH);

@@ -21,6 +21,8 @@ import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
 import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
+import ru.sanberdir.lesson1_21_4.entity.ModEntities;
+import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
@@ -40,6 +42,7 @@ public class Lesson1_21_4 {
         L1214Items.ITEMS.register(modEventBus);
         L1214Blocks.BLOCKS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
+        ModEntities.ENTITY_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
         ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
@@ -75,6 +78,7 @@ public class Lesson1_21_4 {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             Sheets.addWoodType(ModWoodTypes.USUAL);
             EntityRenderers.register(ModEntitiesItem.MOD_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, false));
             EntityRenderers.register(ModEntitiesItem.MOD_CHEST_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, true));
