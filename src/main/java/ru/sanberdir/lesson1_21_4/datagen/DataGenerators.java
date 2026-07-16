@@ -21,6 +21,7 @@ import ru.sanberdir.lesson1_21_4.trim.ModTrimPatterns;
 import ru.sanberdir.lesson1_21_4.worldgen.ModBiomeModifiers;
 import ru.sanberdir.lesson1_21_4.worldgen.ModConfiguredFeatures;
 import ru.sanberdir.lesson1_21_4.worldgen.ModPlacedFeatures;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModBiomes;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,7 +37,9 @@ public class DataGenerators {
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
             .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
             .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
+            .add(Registries.BIOME, ModBiomes::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+
 
     @SubscribeEvent
     public static void onGatherData(GatherDataEvent.Client event) {

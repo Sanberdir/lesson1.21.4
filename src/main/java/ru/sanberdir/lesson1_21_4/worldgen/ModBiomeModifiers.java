@@ -14,6 +14,7 @@ import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModBiomes;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ModBiomeModifiers {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_TREE_USUAL, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
+                HolderSet.direct(biomes.getOrThrow(ModBiomes.TURQUOISE_VALLEY)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.USUAL_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
@@ -56,7 +57,7 @@ public class ModBiomeModifiers {
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.END_BISMUTH_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
         context.register(SPAWN_GECKO, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.SAVANNA)),
+                HolderSet.direct(biomes.getOrThrow(Biomes.SWAMP), biomes.getOrThrow(Biomes.SAVANNA),biomes.getOrThrow(ModBiomes.TURQUOISE_VALLEY)),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntities.GECKO.get(), 20, 1, 7))));
     }
 

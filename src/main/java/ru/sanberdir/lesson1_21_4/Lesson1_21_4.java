@@ -30,7 +30,11 @@ import ru.sanberdir.lesson1_21_4.potions.ModPotions;
 import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 import ru.sanberdir.lesson1_21_4.villager.ModVillagers;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModRegion;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModSurfaceRules;
 import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 @Mod(Lesson1_21_4.MODID)
 public class Lesson1_21_4 {
@@ -44,6 +48,7 @@ public class Lesson1_21_4 {
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
+        Regions.register(new ModRegion());
         ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         ModSounds.SOUND_EVENTS.register(modEventBus);
@@ -60,7 +65,17 @@ public class Lesson1_21_4 {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(ModFlammableBlocks::registerFlammableBlocks);
+        event.enqueueWork(() -> {
+
+            ModFlammableBlocks.registerFlammableBlocks();
+
+            SurfaceRuleManager.addSurfaceRules(
+                    SurfaceRuleManager.RuleCategory.OVERWORLD,
+                    MODID,
+                    ModSurfaceRules.makeRules()
+            );
+
+        });
     }
 
     // Add the example block item to the building blocks tab
