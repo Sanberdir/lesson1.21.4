@@ -149,6 +149,10 @@ public class L1214Blocks {
             (properties) -> new DropExperienceBlock(UniformInt.of(1, 5),
                     properties.strength(3f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> STRANGE_PORTAL_BLOCK = registerBlock("strange_portal_block",
+            (properties) -> new StrangePortalBlock(properties.noCollission().randomTicks().strength(-1.0F)
+                    .sound(SoundType.GLASS).lightLevel((p_50884_) -> 11).pushReaction(PushReaction.BLOCK)));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

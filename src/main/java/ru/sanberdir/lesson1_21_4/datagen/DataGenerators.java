@@ -22,6 +22,7 @@ import ru.sanberdir.lesson1_21_4.worldgen.ModBiomeModifiers;
 import ru.sanberdir.lesson1_21_4.worldgen.ModConfiguredFeatures;
 import ru.sanberdir.lesson1_21_4.worldgen.ModPlacedFeatures;
 import ru.sanberdir.lesson1_21_4.worldgen.biome.ModBiomes;
+import ru.sanberdir.lesson1_21_4.worldgen.dimension.ModDimensions;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,6 +39,8 @@ public class DataGenerators {
             .add(Registries.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
             .add(Registries.TRIM_PATTERN, ModTrimPatterns::bootstrap)
             .add(Registries.BIOME, ModBiomes::bootstrap)
+            .add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem)
+            .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 
 

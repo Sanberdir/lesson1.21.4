@@ -23,6 +23,7 @@ import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
 import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
+import ru.sanberdir.lesson1_21_4.event.PortalActivationEvent;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
@@ -43,6 +44,7 @@ public class Lesson1_21_4 {
 
     public Lesson1_21_4(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
+        NeoForge.EVENT_BUS.register(PortalActivationEvent.class);
         L1214Items.ITEMS.register(modEventBus);
         L1214Blocks.BLOCKS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);

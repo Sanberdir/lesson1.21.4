@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "lesson1_21_4:block/strange_portal_block_ns"
+    },
+    "axis=z": {
+      "model": "lesson1_21_4:block/strange_portal_block_ew"
+    }
+  }
+}
