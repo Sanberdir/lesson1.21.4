@@ -153,6 +153,9 @@ public class L1214Blocks {
             (properties) -> new StrangePortalBlock(properties.noCollission().randomTicks().strength(-1.0F)
                     .sound(SoundType.GLASS).lightLevel((p_50884_) -> 11).pushReaction(PushReaction.BLOCK)));
 
+    public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
+            (properties) -> new PedestalBlock(properties.noOcclusion()));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

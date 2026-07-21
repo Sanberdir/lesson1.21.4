@@ -18,6 +18,8 @@
   "block.lesson1_21_4.usual_sapling": "Обычный саженец",
   "block.lesson1_21_4.stripped_usual_log": "Обтёсанное обычное бревно",
   "block.lesson1_21_4.stripped_usual_wood": "Обтёсанная обычная древесина",
+  "block.lesson1_21_4.pedestal": "Пьедестал",
+
 
   "trim_pattern.lesson1_21_4.kaupen": "Шаблон каупена",
   "trim_material.lesson1_21_4.bismuth": "Материал висмут",
@@ -102,6 +104,6 @@
   "item.lesson1_21_4.usual_trapdoor": "Обычный люк",
   "item.lesson1_21_4.usual_boat": "Обычная лодка",
   "item.lesson1_21_4.usual_chest_boat": "Обычная грузовая лодка",
-  "entity.lesson1_21_4.mod_chest_boat_usual": "Обычная грузовая лодка"
+  "entity.lesson1_21_4.mod_chest_boat_usual": "Обычная грузовая лодка",
   "entity.lesson1_21_4.gecko": "Ящерица"
 }

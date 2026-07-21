@@ -14,12 +14,14 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
 import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
 import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
+import ru.sanberdir.lesson1_21_4.blocks.entity.renderer.PedestalBlockEntityRenderer;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
 import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
@@ -28,6 +30,8 @@ import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
 import ru.sanberdir.lesson1_21_4.potions.ModPotions;
+import ru.sanberdir.lesson1_21_4.screen.ModMenuTypes;
+import ru.sanberdir.lesson1_21_4.screen.custom.PedestalScreen;
 import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
 import ru.sanberdir.lesson1_21_4.villager.ModVillagers;
@@ -47,6 +51,7 @@ public class Lesson1_21_4 {
         NeoForge.EVENT_BUS.register(PortalActivationEvent.class);
         L1214Items.ITEMS.register(modEventBus);
         L1214Blocks.BLOCKS.register(modEventBus);
+        ModMenuTypes.MENUS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
@@ -93,6 +98,15 @@ public class Lesson1_21_4 {
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        }
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+        }
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
