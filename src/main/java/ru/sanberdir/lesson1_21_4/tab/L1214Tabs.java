@@ -63,7 +63,6 @@ public class L1214Tabs {
                         output.accept(L1214Blocks.USUAL_DOOR);
                         output.accept(L1214Blocks.USUAL_WALL);
                         output.accept(L1214Blocks.USUAL_TRAPDOOR);
-
                         output.accept(L1214Blocks.BISMUTH_BLOCK);
                         output.accept(L1214Blocks.BISMUTH_ORE);
                         output.accept(L1214Blocks.BISMUTH_DEEPSLATE_ORE);
