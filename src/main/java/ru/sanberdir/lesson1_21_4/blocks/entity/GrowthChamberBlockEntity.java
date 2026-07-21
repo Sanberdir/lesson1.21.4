@@ -76,7 +76,7 @@ public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvide
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("block.tutorialmod.growth_chamber");
+        return Component.translatable("block.lesson1_21_4.growth_chamber");
     }
 
     @Nullable
@@ -113,7 +113,7 @@ public class GrowthChamberBlockEntity extends BlockEntity implements MenuProvide
     }
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
-        if(hasRecipe()) {
+        if (hasRecipe()) {
             increaseCraftingProgress();
             setChanged(level, blockPos, blockState);
 

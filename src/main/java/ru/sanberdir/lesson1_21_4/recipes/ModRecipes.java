@@ -16,6 +16,7 @@ public class ModRecipes {
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrowthChamberRecipe>> GROWTH_CHAMBER_SERIALIZER =
             SERIALIZERS.register("growth_chamber", GrowthChamberRecipe.Serializer::new);
+
     public static final DeferredHolder<RecipeType<?>, RecipeType<GrowthChamberRecipe>> GROWTH_CHAMBER_TYPE =
             TYPES.register("growth_chamber", () -> new RecipeType<GrowthChamberRecipe>() {
                 @Override
