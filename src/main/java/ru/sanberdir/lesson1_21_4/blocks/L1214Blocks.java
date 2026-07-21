@@ -156,6 +156,8 @@ public class L1214Blocks {
     public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
             (properties) -> new PedestalBlock(properties.noOcclusion()));
 
+    public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber", GrowthChamberBlock::new);
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
         registerBlockItem(name, toReturn);

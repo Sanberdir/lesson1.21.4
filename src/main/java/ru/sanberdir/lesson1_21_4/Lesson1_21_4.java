@@ -30,7 +30,9 @@ import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
 import ru.sanberdir.lesson1_21_4.potions.ModPotions;
+import ru.sanberdir.lesson1_21_4.recipes.ModRecipes;
 import ru.sanberdir.lesson1_21_4.screen.ModMenuTypes;
+import ru.sanberdir.lesson1_21_4.screen.custom.GrowthChamberScreen;
 import ru.sanberdir.lesson1_21_4.screen.custom.PedestalScreen;
 import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
 import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
@@ -56,6 +58,7 @@ public class Lesson1_21_4 {
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
         Regions.register(new ModRegion());
+        ModRecipes.register(modEventBus);
         ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         ModSounds.SOUND_EVENTS.register(modEventBus);
@@ -105,6 +108,7 @@ public class Lesson1_21_4 {
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
         }
 
         @SubscribeEvent
