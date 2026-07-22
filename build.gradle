@@ -16,6 +16,10 @@ repositories {
     maven {
         url = "https://cursemaven.com"
     }
+    maven {
+        name = "BlameJared"
+        url = "https://maven.blamejared.com"
+    }
 }
 
 base {
@@ -103,6 +107,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "curse.maven:terrablender-neoforge-940057:6055021"
+    compileOnly("mezz.jei:jei-1.21.4-neoforge-api:20.0.0.2")
+    runtimeOnly("mezz.jei:jei-1.21.4-neoforge:20.0.0.2")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
