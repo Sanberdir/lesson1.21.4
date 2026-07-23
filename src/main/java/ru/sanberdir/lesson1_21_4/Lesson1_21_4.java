@@ -1,19 +1,9 @@
 package ru.sanberdir.lesson1_21_4;
 
-import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,98 +13,111 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import org.slf4j.Logger;
+import ru.sanberdir.lesson1_21_4.blocks.L1214Blocks;
+import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
+import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
+import ru.sanberdir.lesson1_21_4.blocks.entity.renderer.PedestalBlockEntityRenderer;
+import ru.sanberdir.lesson1_21_4.effect.ModEffects;
+import ru.sanberdir.lesson1_21_4.entity.ModEntities;
+import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
+import ru.sanberdir.lesson1_21_4.event.PortalActivationEvent;
+import ru.sanberdir.lesson1_21_4.items.L1214Items;
+import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
+import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
+import ru.sanberdir.lesson1_21_4.potions.ModPotions;
+import ru.sanberdir.lesson1_21_4.recipes.ModRecipes;
+import ru.sanberdir.lesson1_21_4.screen.ModMenuTypes;
+import ru.sanberdir.lesson1_21_4.screen.custom.GrowthChamberScreen;
+import ru.sanberdir.lesson1_21_4.screen.custom.PedestalScreen;
+import ru.sanberdir.lesson1_21_4.sounds.ModSounds;
+import ru.sanberdir.lesson1_21_4.tab.L1214Tabs;
+import ru.sanberdir.lesson1_21_4.villager.ModVillagers;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModRegion;
+import ru.sanberdir.lesson1_21_4.worldgen.biome.ModSurfaceRules;
+import ru.sanberdir.lesson1_21_4.worldgen.wood.ModWoodTypes;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Lesson1_21_4.MODID)
 public class Lesson1_21_4 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "lesson1_21_4";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "lesson1_21_4" namespace
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "lesson1_21_4" namespace
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "lesson1_21_4" namespace
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // Creates a new Block with the id "lesson1_21_4:example_block", combining the namespace and path
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-    // Creates a new BlockItem with the id "lesson1_21_4:example_block", combining the namespace and path
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
-
-    // Creates a new food item with the id "lesson1_21_4:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder().alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-
-    // Creates a creative tab with the id "lesson1_21_4:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.lesson1_21_4")).withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> EXAMPLE_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
-        output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-    }).build());
-
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Lesson1_21_4(IEventBus modEventBus, ModContainer modContainer) {
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
-
-        // Register ourselves for server and other game events we are interested in.
-        // Note that this is necessary if and only if we want *this* class (Lesson1_21_4) to respond directly to events.
-        // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
+        NeoForge.EVENT_BUS.register(PortalActivationEvent.class);
+        L1214Items.ITEMS.register(modEventBus);
+        L1214Blocks.BLOCKS.register(modEventBus);
+        ModMenuTypes.MENUS.register(modEventBus);
+        L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
+        ModEntities.ENTITY_TYPES.register(modEventBus);
+        ModEffects.MOB_EFFECTS.register(modEventBus);
+        Regions.register(new ModRegion());
+        ModRecipes.register(modEventBus);
+        ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
+        ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModVillagers.register(modEventBus);
         modEventBus.addListener(this::addCreative);
-
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModEntitiesItem.ITEM_ENTITIES.register(modEventBus);  // ← добавь эту строку
+        modEventBus.addListener((EntityRenderersEvent.RegisterRenderers event) -> {
+            event.registerBlockEntityRenderer(ModBlockEntities.USUAL_SIGN.get(), SignRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.USUAL_HANGING_SIGN.get(), HangingSignRenderer::new);
+        });
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
+        event.enqueueWork(() -> {
 
-        if (Config.logDirtBlock) LOGGER.info("DIRT BLOCK >> {}", BuiltInRegistries.BLOCK.getKey(Blocks.DIRT));
+            ModFlammableBlocks.registerFlammableBlocks();
 
-        LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
+            SurfaceRuleManager.addSurfaceRules(
+                    SurfaceRuleManager.RuleCategory.OVERWORLD,
+                    MODID,
+                    ModSurfaceRules.makeRules()
+            );
 
-        Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+        });
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) event.accept(EXAMPLE_BLOCK_ITEM);
-    }
 
+    }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
+        }
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
+            event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+        }
+
+        @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
+            Sheets.addWoodType(ModWoodTypes.USUAL);
+            EntityRenderers.register(ModEntitiesItem.MOD_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, false));
+            EntityRenderers.register(ModEntitiesItem.MOD_CHEST_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, true));
+
         }
     }
 }

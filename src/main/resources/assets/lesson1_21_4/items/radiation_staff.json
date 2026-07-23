@@ -1,0 +1,28 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+
+    "cases": [
+      {
+        "when": ["gui"],
+        "model": {
+          "type": "minecraft:model",
+          "model": "lesson1_21_4:item/radiation_staff"
+        }
+      },
+      {
+        "when": ["ground","fixed"],
+        "model": {
+          "type": "minecraft:model",
+          "model": "lesson1_21_4:item/radiation_staff"
+        }
+      }
+    ],
+
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "lesson1_21_4:item/radiation_staff_3d"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "lesson1_21_4:usual_boat"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_usual_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "lesson1_21_4:usual_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_usual_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lesson1_21_4:usual_boat"
+    ]
+  }
+}

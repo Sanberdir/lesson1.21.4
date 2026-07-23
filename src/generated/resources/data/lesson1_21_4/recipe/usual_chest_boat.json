@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "lesson1_21_4:usual_boat",
+    "C": "minecraft:chest"
+  },
+  "pattern": [
+    "C",
+    "B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "lesson1_21_4:usual_chest_boat"
+  }
+}

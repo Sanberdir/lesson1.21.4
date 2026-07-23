@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "lesson1_21_4:bismuth"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "lesson1_21_4:bismuth"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "lesson1_21_4:bismuth"
+      }
+    ]
+  }
+}

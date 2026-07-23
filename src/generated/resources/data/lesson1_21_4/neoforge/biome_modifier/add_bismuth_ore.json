@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "lesson1_21_4:bismuth_ore_placed",
+  "step": "underground_ores"
+}

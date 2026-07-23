@@ -1,0 +1,13 @@
+{
+  "asset_id": "lesson1_21_4:shrimp",
+  "height": 1,
+  "width": 2,
+  "author": {
+    "color": "gray",
+    "translate": "painting.lesson1_21_4.shrimp.author"
+  },
+  "title": {
+    "color": "yellow",
+    "translate": "painting.lesson1_21_4.shrimp.title"
+  }
+}

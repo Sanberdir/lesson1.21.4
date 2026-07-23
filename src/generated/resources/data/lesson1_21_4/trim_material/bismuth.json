@@ -1,0 +1,8 @@
+{
+  "asset_name": "bismuth",
+  "description": {
+    "color": "#031CFC",
+    "translate": "trim_material.lesson1_21_4.bismuth"
+  },
+  "ingredient": "lesson1_21_4:bismuth"
+}

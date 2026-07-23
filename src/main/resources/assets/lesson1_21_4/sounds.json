@@ -1,0 +1,40 @@
+{
+  "magic_block_break": {
+    "subtitle": "sounds.lesson1_21_4.magic_block_break",
+    "sounds": [
+      "lesson1_21_4:magic_block_break"
+    ]
+  },
+  "magic_block_step": {
+    "subtitle": "sounds.lesson1_21_4.magic_block_step",
+    "sounds": [
+      "lesson1_21_4:magic_block_step"
+    ]
+  },
+  "magic_block_place": {
+    "subtitle": "sounds.lesson1_21_4.magic_block_place",
+    "sounds": [
+      "lesson1_21_4:magic_block_place"
+    ]
+  },
+  "magic_block_hit": {
+    "subtitle": "sounds.lesson1_21_4.magic_block_hit",
+    "sounds": [
+      "lesson1_21_4:magic_block_hit"
+    ]
+  },
+  "magic_block_fall": {
+    "subtitle": "sounds.lesson1_21_4.magic_block_fall",
+    "sounds": [
+      "lesson1_21_4:magic_block_fall"
+    ]
+  },
+  "bar_brawl": {
+    "sounds": [
+      {
+        "name": "lesson1_21_4:bar_brawl",
+        "stream": true
+      }
+    ]
+  }
+}
