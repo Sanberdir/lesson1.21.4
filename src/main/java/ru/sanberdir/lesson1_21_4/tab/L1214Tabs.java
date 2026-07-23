@@ -74,6 +74,7 @@ public class L1214Tabs {
                         output.accept(L1214Blocks.USUAL_HANGING_SIGN.get());
                         output.accept(L1214Blocks.PEDESTAL.get());
                         output.accept(L1214Blocks.GROWTH_CHAMBER.get());
+                        output.accept(L1214Blocks.CHAIR.get());
                     })
                     .build());
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "lesson1_21_4:block/chair"
+    },
+    "facing=south": {
+      "model": "lesson1_21_4:block/chair",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "lesson1_21_4:block/chair",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "lesson1_21_4:block/chair",
+      "y": 270
+    }
+  }
+}

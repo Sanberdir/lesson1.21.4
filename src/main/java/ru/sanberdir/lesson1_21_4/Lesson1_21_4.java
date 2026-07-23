@@ -24,6 +24,7 @@ import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.blocks.entity.renderer.PedestalBlockEntityRenderer;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
+import ru.sanberdir.lesson1_21_4.entity.client.ChairRenderer;
 import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
 import ru.sanberdir.lesson1_21_4.event.PortalActivationEvent;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
@@ -115,6 +116,7 @@ public class Lesson1_21_4 {
         public static void onClientSetup(FMLClientSetupEvent event) {
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             Sheets.addWoodType(ModWoodTypes.USUAL);
+            EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);
             EntityRenderers.register(ModEntitiesItem.MOD_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, false));
             EntityRenderers.register(ModEntitiesItem.MOD_CHEST_BOAT_USUAL.get(), pContext -> new ModUsualBoatRenderer(pContext, true));
 

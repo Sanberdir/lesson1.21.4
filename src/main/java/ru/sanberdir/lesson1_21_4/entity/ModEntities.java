@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
+import ru.sanberdir.lesson1_21_4.entity.custom.ChairEntity;
 import ru.sanberdir.lesson1_21_4.entity.custom.GeckoEntity;
 
 import java.util.function.Supplier;
@@ -16,10 +17,16 @@ public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, Lesson1_21_4.MODID);
 
+    public static ResourceKey<EntityType<?>> CHAIR_KEY = ResourceKey.create(Registries.ENTITY_TYPE,
+            ResourceLocation.withDefaultNamespace("chair_entity"));
+
     public static final Supplier<EntityType<GeckoEntity>> GECKO =
             ENTITY_TYPES.register("gecko", () -> EntityType.Builder.of(GeckoEntity::new, MobCategory.CREATURE)
                     .sized(0.75f, 0.35f).build(ResourceKey.create(
                             Registries.ENTITY_TYPE,
                             ResourceLocation.fromNamespaceAndPath(Lesson1_21_4.MODID, "gecko")
                     )));
+    public static final Supplier<EntityType<ChairEntity>> CHAIR_ENTITY =
+            ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build(CHAIR_KEY));
 }
