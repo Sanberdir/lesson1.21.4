@@ -43,6 +43,7 @@ public class L1214Tabs {
                         output.accept(L1214Items.KAUPEN_SMITHING_TEMPLATE);
                         output.accept(L1214Items.BISMUTH_HORSE_ARMOR);
                         output.accept(L1214Items.KAUPEN_BOW);
+                        output.accept(L1214Items.RADIATION_STAFF);
 
                         // блоки
                         output.accept(L1214Blocks.MY_BETTER_BLOCK);
