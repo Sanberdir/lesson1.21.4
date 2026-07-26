@@ -16,6 +16,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import ru.sanberdir.lesson1_21_4.Lesson1_21_4;
+import ru.sanberdir.lesson1_21_4.enchantments.ModEnchantments;
 import ru.sanberdir.lesson1_21_4.trim.ModTrimMaterials;
 import ru.sanberdir.lesson1_21_4.trim.ModTrimPatterns;
 import ru.sanberdir.lesson1_21_4.worldgen.ModBiomeModifiers;
@@ -41,6 +42,7 @@ public class DataGenerators {
             .add(Registries.BIOME, ModBiomes::bootstrap)
             .add(Registries.LEVEL_STEM, ModDimensions::bootstrapStem)
             .add(Registries.DIMENSION_TYPE, ModDimensions::bootstrapType)
+            .add(Registries.ENCHANTMENT, ModEnchantments::bootstrap)
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 
 

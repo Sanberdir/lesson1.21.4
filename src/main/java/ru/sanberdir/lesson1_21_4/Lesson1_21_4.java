@@ -23,6 +23,7 @@ import ru.sanberdir.lesson1_21_4.blocks.custom.ModFlammableBlocks;
 import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.blocks.entity.renderer.PedestalBlockEntityRenderer;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
+import ru.sanberdir.lesson1_21_4.enchantments.ModEnchantmentEffects;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
 import ru.sanberdir.lesson1_21_4.entity.client.ChairRenderer;
 import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
@@ -63,6 +64,7 @@ public class Lesson1_21_4 {
         ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         ModSounds.SOUND_EVENTS.register(modEventBus);
+        ModEnchantmentEffects.ENTITY_ENCHANTMENT_EFFECTS.register(modEventBus);
         ModVillagers.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -93,6 +95,7 @@ public class Lesson1_21_4 {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
+
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
