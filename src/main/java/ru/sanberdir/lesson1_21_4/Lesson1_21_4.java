@@ -13,6 +13,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.common.NeoForge;
@@ -24,6 +25,7 @@ import ru.sanberdir.lesson1_21_4.blocks.entity.ModBlockEntities;
 import ru.sanberdir.lesson1_21_4.blocks.entity.renderer.PedestalBlockEntityRenderer;
 import ru.sanberdir.lesson1_21_4.effect.ModEffects;
 import ru.sanberdir.lesson1_21_4.enchantments.ModEnchantmentEffects;
+import ru.sanberdir.lesson1_21_4.enchantments.custom.ClientLightningRenderer;
 import ru.sanberdir.lesson1_21_4.entity.ModEntities;
 import ru.sanberdir.lesson1_21_4.entity.client.ChairRenderer;
 import ru.sanberdir.lesson1_21_4.entity.client.GeckoRenderer;
@@ -31,6 +33,7 @@ import ru.sanberdir.lesson1_21_4.event.PortalActivationEvent;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
+import ru.sanberdir.lesson1_21_4.particle.ModParticles;
 import ru.sanberdir.lesson1_21_4.potions.ModPotions;
 import ru.sanberdir.lesson1_21_4.recipes.ModRecipes;
 import ru.sanberdir.lesson1_21_4.screen.ModMenuTypes;
@@ -57,10 +60,12 @@ public class Lesson1_21_4 {
         L1214Blocks.BLOCKS.register(modEventBus);
         ModMenuTypes.MENUS.register(modEventBus);
         L1214Tabs.CREATIVE_MODE_TABS.register(modEventBus);
+        ModParticles.PARTICLE_TYPES.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         ModEffects.MOB_EFFECTS.register(modEventBus);
         Regions.register(new ModRegion());
         ModRecipes.register(modEventBus);
+        NeoForge.EVENT_BUS.register(ClientLightningRenderer.class);
         ModPotions.POTIONS.register(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         ModSounds.SOUND_EVENTS.register(modEventBus);
@@ -117,6 +122,7 @@ public class Lesson1_21_4 {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
             EntityRenderers.register(ModEntities.GECKO.get(), GeckoRenderer::new);
             Sheets.addWoodType(ModWoodTypes.USUAL);
             EntityRenderers.register(ModEntities.CHAIR_ENTITY.get(), ChairRenderer::new);

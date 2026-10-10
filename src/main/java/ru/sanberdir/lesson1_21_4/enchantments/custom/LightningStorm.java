@@ -1,158 +1,137 @@
 package ru.sanberdir.lesson1_21_4.enchantments.custom;
 
-// Импорт для серверного мира
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
-// Импорт базового класса сущности
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
-// Импорт причины создания сущности (для валидации)
-import net.minecraft.world.entity.EntitySpawnReason;
-// Импорт типа сущности (для создания молнии)
-import net.minecraft.world.entity.EntityType;
-// Импорт класса молнии
-import net.minecraft.world.entity.LightningBolt;
-// Импорт для работы с векторами (позиция в 3D пространстве)
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.neoforged.neoforge.network.PacketDistributor;
 
-// Импорты для работы со списками и итераторами
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * Класс для управления "штормом" из молний.
- * Реализует паттерн: создаёт и управляет цепочкой ударов молний вокруг цели.
- *
- * Работает асинхронно: молнии появляются не мгновенно, а с задержкой в 2 тика,
- * создавая эффект настоящей грозы.
- */
 public class LightningStorm {
+    private static final List<ChainInstance> ACTIVE_CHAINS = new ArrayList<>();
 
     /**
-     * Глобальный список всех активных штормов.
-     * static - потому что штормы должны существовать на протяжении всей игры,
-     * независимо от экземпляров класса.
-     */
-    private static final List<StormData> STORMS = new ArrayList<>();
-
-    /**
-     * Статический метод для запуска нового шторма.
-     * Создаёт объект StormData и добавляет его в глобальный список.
+     * Запуск шторма с защитой от дружественного огня.
      *
-     * @param level   Серверный мир, где происходит шторм
-     * @param center  Центральная сущность, вокруг которой падают молнии
-     * @param strikes Количество ударов молний в этом шторме
+     * @param level Серверный мир
+     * @param caster Тот, кто вызвал молнию (Игрок). Его молния НЕ будет бить.
+     * @param target Первая жертва (Моб)
+     * @param maxJumps Количество прыжков
      */
-    public static void start(ServerLevel level, Entity center, int strikes) {
-        STORMS.add(new StormData(level, center, strikes));
+    public static void start(ServerLevel level, Entity caster, Entity target, int maxJumps) {
+        if (target instanceof LivingEntity livingTarget) {
+            ACTIVE_CHAINS.add(new ChainInstance(level, caster, livingTarget, maxJumps));
+        }
     }
 
-    /**
-     * Основной тик-метод, который должен вызываться каждый игровой тик.
-     * Обновляет состояние всех активных штормов и удаляет завершённые.
-     *
-     * Обычно вызывается из хук-метода или события, например, в ServerTickEvent.
-     */
     public static void tick() {
-        // Используем Iterator для безопасного удаления элементов во время итерации
-        Iterator<StormData> iterator = STORMS.iterator();
-
+        Iterator<ChainInstance> iterator = ACTIVE_CHAINS.iterator();
         while (iterator.hasNext()) {
-            StormData storm = iterator.next();
-
-            // Если шторм завершился (tick() вернул false) - удаляем его из списка
-            if (!storm.tick()) {
+            if (!iterator.next().tick()) {
                 iterator.remove();
             }
         }
     }
 
-    /**
-     * Внутренний класс, хранящий данные об одном активном шторме.
-     * Инкапсулирует состояние и логику обновления.
-     */
-    private static class StormData {
-
-        /** Мир, в котором происходит шторм */
+    private static class ChainInstance {
         private final ServerLevel level;
-
-        /** Центральная сущность (цель) */
-        private final Entity center;
-
-        /** Сколько ударов молний осталось нанести */
-        private int left;
-
-        /**
-         * Таймер задержки между ударами (в тиках).
-         * При 0 - можно наносить следующий удар.
-         */
+        private final List<LivingEntity> hitEntities = new ArrayList<>();
+        private LivingEntity currentTarget;
+        private Vec3 lastPosition;
+        private int jumpsLeft;
         private int cooldown = 0;
 
-        /**
-         * Конструктор шторма.
-         *
-         * @param level   Мир
-         * @param center  Центральная сущность
-         * @param strikes Общее количество ударов
-         */
-        StormData(ServerLevel level, Entity center, int strikes) {
+        ChainInstance(ServerLevel level, Entity caster, LivingEntity firstTarget, int maxJumps) {
             this.level = level;
-            this.center = center;
-            this.left = strikes;
+            this.currentTarget = firstTarget;
+            this.jumpsLeft = maxJumps;
+            this.lastPosition = firstTarget.position().add(0, 4, 0);
+
+            // ВАЖНО: Сразу добавляем создателя молнии в список "уже атакованных".
+            // Благодаря этому алгоритм поиска целей (nearby) будет полностью его игнорировать!
+            if (caster instanceof LivingEntity livingCaster) {
+                this.hitEntities.add(livingCaster);
+            }
         }
 
-        /**
-         * Обновляет состояние шторма на один игровой тик.
-         *
-         * @return true - шторм ещё активен, false - шторм завершён
-         */
         boolean tick() {
-
-            // Проверяем, жива ли центральная сущность
-            // Если цель умерла - шторм немедленно прекращается (безопасность)
-            if (!center.isAlive())
+            if (currentTarget == null || jumpsLeft <= 0) {
                 return false;
-
-            // Уменьшаем таймер задержки. Если он > 0 - пропускаем этот тик
-            if (cooldown-- > 0)
-                return true;
-
-            // Сбрасываем задержку на 2 тика (примерно 0.1 секунды при 20 TPS)
-            cooldown = 2;
-
-            // === Генерация позиции для следующей молнии ===
-
-            // Случайный угол (от 0 до 2π радиан) - определяет направление
-            double angle = level.random.nextDouble() * Math.PI * 2;
-
-            // Случайное расстояние от центра (от 2 до 7 блоков)
-            // Минимум 2 блока - чтобы молния не попала прямо в цель
-            double radius = 2 + level.random.nextDouble() * 5;
-
-            // Вычисляем позицию с использованием тригонометрии
-            // X и Z меняются, Y остаётся на уровне центра (высота 0 - земля)
-            Vec3 pos = center.position().add(
-                    Math.cos(angle) * radius,  // Координата X
-                    0,                          // Координата Y (высота)
-                    Math.sin(angle) * radius   // Координата Z
-            );
-
-            // === Создание и размещение молнии ===
-
-            // Создаём сущность молнии с причиной TRIGGERED (вызвана игроком/зачарованием)
-            LightningBolt bolt = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.TRIGGERED);
-
-            if (bolt != null) {
-                // Перемещаем молнию на вычисленную позицию
-                bolt.moveTo(pos.x, pos.y, pos.z);
-                // Добавляем сущность в мир
-                level.addFreshEntity(bolt);
             }
 
-            // Уменьшаем счётчик оставшихся ударов
-            left--;
+            if (cooldown-- > 0) return true;
+            cooldown = 3;
 
-            // Возвращаем true, если есть ещё удары, иначе false (шторм завершён)
-            return left > 0;
+            Vec3 currentPos = currentTarget.position().add(0, currentTarget.getBbHeight() / 2, 0);
+
+            if (currentTarget.isAlive()) {
+                // Создаем кастомный источник урона на базе ванильной молнии, но с кастомным текстовым ключом "chain_lightning"
+                DamageSource chainLightningDamage =
+                        new DamageSource(
+                                level.registryAccess().lookupOrThrow(Registries.DAMAGE_TYPE)
+                                        .getOrThrow(DamageTypes.LIGHTNING_BOLT)
+                        ) {
+                            @Override
+                            public String getMsgId() {
+                                return "chain_lightning"; // Наша уникальная метка урона!
+                            }
+                        };
+
+// Бьем моба именно нашим помеченным источником урона
+                currentTarget.hurt(chainLightningDamage, 4.0F);
+
+            }
+
+            hitEntities.add(currentTarget);
+
+            List<Vec3> segment = List.of(this.lastPosition, currentPos);
+            sendSegmentToClients(segment);
+
+            level.playSound(null, currentPos.x, currentPos.y, currentPos.z,
+                    SoundEvents.LIGHTNING_BOLT_IMPACT, SoundSource.WEATHER, 0.6F, 1.4F + level.random.nextFloat() * 0.3F);
+
+            this.lastPosition = currentPos;
+
+            // Поиск следующей цели
+            double range = 7.0;
+            AABB box = currentTarget.getBoundingBox().inflate(range);
+
+            // Фильтр автоматически отсекает всех из hitEntities (включая сохраненного игрока-кастера)
+            List<LivingEntity> nearby = level.getEntitiesOfClass(LivingEntity.class, box,
+                    entity -> entity.isAlive() && !hitEntities.contains(entity));
+
+            LivingEntity nextTarget = null;
+            double closestDist = Double.MAX_VALUE;
+
+            for (LivingEntity potential : nearby) {
+                double dist = currentTarget.position().distanceToSqr(potential.position());
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    nextTarget = potential;
+                }
+            }
+
+            currentTarget = nextTarget;
+            jumpsLeft--;
+            return true;
+        }
+
+        private void sendSegmentToClients(List<Vec3> segmentPoints) {
+           PacketDistributor.sendToPlayersNear(
+                    this.level, null,
+                    this.lastPosition.x, this.lastPosition.y, this.lastPosition.z,
+                    64.0,
+                    new ChainLightningPayload(segmentPoints)
+            );
         }
     }
 }

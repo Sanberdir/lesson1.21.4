@@ -46,23 +46,21 @@ public record LightningStrikerEnchantmentEffect() implements EnchantmentEntityEf
     public void apply(ServerLevel level, int enchantmentLevel,
                       EnchantedItemInUse item, Entity entity, Vec3 pos) {
 
-        // Получаем генератор случайных чисел для текущего мира
         RandomSource random = level.getRandom();
 
-        // Определяем количество ударов молний на основе уровня зачарования
         int strikes = switch (enchantmentLevel) {
-            // I уровень: от 1 до 4 ударов (включительно)
             case 1 -> random.nextIntBetweenInclusive(1, 4);
-            // II уровень: от 4 до 16 ударов (включительно)
             case 2 -> random.nextIntBetweenInclusive(4, 16);
-            // Другие уровни (0 или выше 2) - молнии не вызываются
             default -> 0;
         };
 
-        // Запускаем процесс создания грозы с указанным количеством ударов
-        // Статический метод LightningStorm.start создаёт и управляет цепочкой молний
-        LightningStorm.start(level, entity, strikes);
+        // Получаем игрока (владельца меча)
+        Entity caster = item.owner();
+
+        // Передаем и кастера (для защиты), и саму цель шторма
+        LightningStorm.start(level, caster, entity, strikes);
     }
+
 
     /**
      * Возвращает кодек для сериализации/десериализации этого эффекта.

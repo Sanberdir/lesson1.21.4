@@ -24,4 +24,5 @@ public class ModClientEventBus {
             event.setNewFovModifier(fovModifier);
         }
     }
+
 }
