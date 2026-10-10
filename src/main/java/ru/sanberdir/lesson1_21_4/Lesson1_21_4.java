@@ -16,6 +16,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -33,6 +34,7 @@ import ru.sanberdir.lesson1_21_4.event.PortalActivationEvent;
 import ru.sanberdir.lesson1_21_4.items.L1214Items;
 import ru.sanberdir.lesson1_21_4.items.entity.ModEntitiesItem;
 import ru.sanberdir.lesson1_21_4.items.entity.client.ModUsualBoatRenderer;
+import ru.sanberdir.lesson1_21_4.particle.BismuthParticles;
 import ru.sanberdir.lesson1_21_4.particle.ModParticles;
 import ru.sanberdir.lesson1_21_4.potions.ModPotions;
 import ru.sanberdir.lesson1_21_4.recipes.ModRecipes;
@@ -118,6 +120,10 @@ public class Lesson1_21_4 {
         public static void registerScreens(RegisterMenuScreensEvent event) {
             event.register(ModMenuTypes.PEDESTAL_MENU.get(), PedestalScreen::new);
             event.register(ModMenuTypes.GROWTH_CHAMBER_MENU.get(), GrowthChamberScreen::new);
+        }
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.BISMUTH_PARTICLES.get(), BismuthParticles.Provider::new);
         }
 
         @SubscribeEvent
