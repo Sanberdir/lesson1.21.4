@@ -155,6 +155,7 @@ public class L1214Blocks {
 
     public static final DeferredBlock<Block> PEDESTAL = registerBlock("pedestal",
             (properties) -> new PedestalBlock(properties.noOcclusion()));
+
     public static final DeferredBlock<Block> GROWTH_CHAMBER = registerBlock("growth_chamber", GrowthChamberBlock::new);
     public static final DeferredBlock<Block> CHAIR = registerBlock("chair",
             (properties) -> new ChairBlock(properties.noOcclusion()));

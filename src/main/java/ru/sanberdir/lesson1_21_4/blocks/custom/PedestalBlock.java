@@ -68,7 +68,7 @@ public class PedestalBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useItemOn (ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
+                                           Player player, InteractionHand hand, BlockHitResult hitResult) {
         if(level.getBlockEntity(pos) instanceof PedestalBlockEntity pedestalBlockEntity) {
             if(player.isCrouching() && !level.isClientSide()) {
                 ((ServerPlayer) player).openMenu(new SimpleMenuProvider(pedestalBlockEntity, Component.literal("Pedestal")), pos);
